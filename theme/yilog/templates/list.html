@@ -21,7 +21,7 @@
         {% 
           set cat_item = `{
             "caption": "`~ category ~`", 
-            "url": "` ~ category_url_base ~ cat_path ~`/?category=`~ cat_encoded ~`"
+            "url": "` ~ category_url_base ~ cat_path ~`/?__tpl=list.html&category_url_base={{category_url_base|urlencode_strict}}&category=`~ cat_encoded ~`"
           }` | json 
         %}
         {% set navs = navs | concat(with=cat_item) %}
@@ -29,15 +29,7 @@
       {{ common_blocks::breadcrumb(navs = navs) }}
 
       <!-- 分类 -->
-      {% set all_categories =  posts_caregory_list() %}
-      {% if not all_categories is empty %}
-      <div class="flex justify-center">
-        {% for k, v in all_categories %}
-        {% if loop.index0 %} <span class="mx-1 text-gray-500">&bull;</span> {% endif %}
-        <a class="{% if category == k %}text-amber-600{% endif %}" href="{{category_url_base|safe}}{{k|slugify}}/?category={{k|urlencode_strict}}">{{k}}</a>
-        {% endfor %}
-      </div>
-      {% endif %}
+      
     </div>
     {% endif %}
 

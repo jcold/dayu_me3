@@ -17,6 +17,9 @@ sitemap:
         category_url_base: /blog/category/
         page_size: 10
       children:
+        - path: "category/*"
+          qs:
+            __tpl: list.html
         - path: "*/*"
           qs:
             __tpl: details.html
