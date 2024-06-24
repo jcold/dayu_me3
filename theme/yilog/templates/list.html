@@ -15,17 +15,6 @@
     <div class="px-4 py-2 md:px-0 flex flex-col justify-stretch justify-items-center gap-4 md:items-center md:flex-row md:justify-between">
       {% if __breadcrumbs %}
       {% set navs = __breadcrumbs %}
-      {% if not category is empty %}
-        {% set cat_path = category | slugify %}
-        {% set cat_encoded = category | urlencode_strict %}
-        {% 
-          set cat_item = `{
-            "caption": "`~ category ~`", 
-            "url": "` ~ category_url_base ~ cat_path ~`/?__tpl=list.html&category_url_base={{category_url_base|urlencode_strict}}&category=`~ cat_encoded ~`"
-          }` | json 
-        %}
-        {% set navs = navs | concat(with=cat_item) %}
-      {% endif %}
       {{ common_blocks::breadcrumb(navs = navs) }}
 
       <!-- 分类 -->

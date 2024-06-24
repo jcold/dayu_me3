@@ -40,17 +40,6 @@
         </span>
       {% endif %}
     </div>
-
-    {% if doc.categories %}
-    <div class="">
-      <span>{{t(text="details: Category")}}: </span>
-      {% for cat in doc.categories%}
-        {% if loop.index0 %} <span class=" text-gray-500">&bull;</span> {% endif %}
-        <a href="{{category_url_base}}{{cat|slugify}}/?category={{cat|urlencode_strict}}">{{cat}}</a>
-      {% endfor %}
-    </div>
-    {% endif %}
-
   </div>
   <div class="markdown-body pt-4">
     {{doc.content_html | safe}}
