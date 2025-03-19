@@ -1,0 +1,279 @@
+
+
+<head>
+    <title>
+字体 | 🌾大余之道</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Windows-Target" contect="_top" />
+    
+    
+    <link rel="stylesheet" href="/assets/main.dc2e1209.css">
+    
+    <script>window.__everkm_lang = "zh_CN"</script>
+</head>
+
+<body>
+    <div class="body-container">
+        
+        <div class="app-header border-b sticky top-0 z-10 w-full h-[3.5rem] overflow-hidden bg-white flex items-center">
+            
+    <div class="flex-1 flex justify-between items-center px-4 py-2 lg:px-8">
+        <div class="flex items-center">
+            
+
+            <div>
+                <a href="/" class="text-lg !text-gray-800 font-medium">🌾大余之道</a>
+                <span class="hidden lg:inline-block text-gray-600 text-xs"></span>
+            </div>
+        </div>
+        <div class="hidden md:flex space-x-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="false" class="inline-flex" />
+    </div>
+    
+
+            
+    
+    
+
+        </div>
+
+        <div class="flex-shrink-0 ml-4 overflow-hidden md:hidden flex items-center gap-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="true" class="inline-flex" />
+    </div>
+    
+
+            
+            
+<div id="drawer" class="w-6 h-6 flex items-center justify-center active:bg-gray-200 text-[1.4rem]">
+    <span class="icon-[material-symbols--dehaze-rounded]"></span>
+</div>
+
+            
+        </div>
+
+    </div>
+
+        </div>
+        <!-- 左导航栏 -->
+        <div id="aside-nav" class="hidden fixed top-0 w-3/4 max-w-xs px-4 z-20 overscroll-contain border-r overflow-y-auto h-screen md:h-[calc(100vh-var(--app-header-height))] md:w-full md:max-w-none md:top-[3.5rem] md:sticky md:hidden">
+            <div class="drawer-body space-y-4">
+                <div class="md:hidden space-y-1.5 border-b pb-3">
+                    
+    
+    
+
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+<div class="mx-auto max-w-screen-md mb-10 space-y-2 px-4 lg:px-8 pt-3">
+  
+
+  
+  <div class="">
+    
+    <div class="text-zinc-400 text-[0.9em]">
+        
+        
+        <a class="text-zinc-700" href="/">
+            首页
+             </a> 
+        
+         &raquo; 
+        <a class="text-zinc-700" href="/blog/">
+            博客
+             </a> 
+        
+    </div>
+
+  </div>
+  
+
+  <h1 class="text-2xl font-semibold pt-2">字体</h1>
+
+  <div class="flex flex-col md:flex-row md:gap-4 text-[0.9em] text-gray-500">
+    <div class="">
+      
+        <span>
+        2023-10-23 14:19:00
+        <em>更新</em>
+        </span>
+      
+    </div>
+  </div>
+  <div class="markdown-body pt-4">
+    <p><strong>本页目录</strong></p>
+<div class="md-toc"><ul>
+<li><a href="#webnei-qian-zi-ti">Web内嵌字体</a></li>
+<li><a href="#mian-fei-shang-yong-zi-ti">免费商用字体</a></li>
+<li><a href="#wo-de-zi-ti-ku">我的字体库</a>
+<ul>
+<li><a href="#ke-shi-lu-yan-ti">刻石录颜体</a></li>
+<li><a href="#si-yuan-xi-lie">思源系列</a></li>
+<li><a href="#a-li-ma-ma-dong-fang-da-kai">阿里妈妈东方大楷</a></li>
+<li><a href="#a-li-ba-ba-pu-hui-ti">阿里巴巴普惠体</a></li>
+<li><a href="#xia-mu-wen-kai-lxgw-wenkai">霞鹜文楷 / LXGW WenKai</a></li>
+<li><a href="#yun-feng-han-chan-ti">云峰寒蝉体</a></li>
+<li><a href="#xi-wen-zi-ti">西文字体</a></li>
+</ul>
+</li>
+<li><a href="#ref">Ref</a></li>
+</ul>
+</div>
+<h2>Web内嵌字体<a name="webnei-qian-zi-ti" href="#webnei-qian-zi-ti" class="heading-anchor"></a></h2>
+<ol>
+<li>
+<p>通过<a href="https://font-subset.disidu.com/">字体裁剪</a>导出字形文件</p>
+</li>
+<li>
+<p>生成以下CSS样式</p>
+<pre><code class="language-css">@font-face {
+font-family: "myFont";
+src: url("font-cliped.woff2") format("woff2"),
+    url("font-cliped.woff") format("woff"),
+    url("font-cliped.ttf") format("truetype"),
+    url("font-cliped.eot") format("embedded-opentype"),
+    url("font-cliped.svg") format("svg");
+}
+</code></pre>
+<p>不考虑兼容性，src使用其中一种就好。<code>font-family</code> 指定定义引用的字体名称。</p>
+</li>
+<li>
+<p>在HTML中应用字体</p>
+<pre><code class="language-html">&lt;p style="font-family: myFont"&gt;我有别具一格的字体。&lt;/p&gt;
+</code></pre>
+</li>
+</ol>
+<p>其他字体剪裁工具<a href="https://ryuurock.github.io/2021/12/27/web-load-performance-optimization/">参考</a>。</p>
+<h2>免费商用字体<a name="mian-fei-shang-yong-zi-ti" href="#mian-fei-shang-yong-zi-ti" class="heading-anchor"></a></h2>
+<ul>
+<li><a href="https://ziyouziti.com/">免费字体下载_免费商用字体_免费字体网_自由字体官网</a></li>
+</ul>
+<h2>我的字体库<a name="wo-de-zi-ti-ku" href="#wo-de-zi-ti-ku" class="heading-anchor"></a></h2>
+<p>随着大家对数字版权的重视，请谨慎使用来源不明的素材，如图片、字体、内容等，以免引起不必要的麻烦。</p>
+<p>这里收录几款免费字体，可商用，<mark>注意</mark>：免费不等于无需授权<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup>。</p>
+<h3>刻石录颜体<a name="ke-shi-lu-yan-ti" href="#ke-shi-lu-yan-ti" class="heading-anchor"></a></h3>
+<p>免费使用<sup class="footnote-ref"><a href="#fn-2" id="fnref-2" data-footnote-ref>2</a></sup>/无需授权<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup></p>
+<p><img src="/assets/media/5/56/564c5d89de77d528.jpg" alt="刻石录颜体" width="600px" height="400px" /></p>
+<p>下载：<a href="https://ziyouziti.com/mianfeiziti-115.html">https://ziyouziti.com/mianfeiziti-115.html</a></p>
+<h3>思源系列<a name="si-yuan-xi-lie" href="#si-yuan-xi-lie" class="heading-anchor"></a></h3>
+<p>开源字体<sup class="footnote-ref"><a href="#fn-3" id="fnref-3" data-footnote-ref>3</a></sup>/无需授权<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup></p>
+<p><img src="/assets/media/6/6b/6b4ff3f1dfae2a45.png" alt="思源字体" width="1600px" height="600px" /></p>
+<ul>
+<li>
+<p><strong>宋体下载</strong>：<a href="https://github.com/adobe-fonts/source-han-serif/blob/master/README-CN.md">https://github.com/adobe-fonts/source-han-serif/blob/master/README-CN.md</a></p>
+</li>
+<li>
+<p><strong>黑体下载</strong>： <a href="https://github.com/adobe-fonts/source-han-sans/blob/master/README-CN.md">https://github.com/adobe-fonts/source-han-sans/blob/master/README-CN.md</a></p>
+</li>
+</ul>
+<h3>阿里妈妈东方大楷<a name="a-li-ma-ma-dong-fang-da-kai" href="#a-li-ma-ma-dong-fang-da-kai" class="heading-anchor"></a></h3>
+<p>免费使用<sup class="footnote-ref"><a href="#fn-2" id="fnref-2" data-footnote-ref>2</a></sup>/无需授权<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup></p>
+<p><img src="/assets/media/8/86/86198f9fd6d796a4.jpg" alt="东方大楷" width="2750px" height="1974px" /></p>
+<ul>
+<li>官网：<a href="https://www.iconfont.cn/fonts/detail?cnid=IhcTcFymWeyf">https://www.iconfont.cn/fonts/detail?cnid=IhcTcFymWeyf</a></li>
+<li>备用下载：<a href="https://font.chinaz.com/so/dongfangdakai.html">https://font.chinaz.com/so/dongfangdakai.html</a></li>
+</ul>
+<h3>阿里巴巴普惠体<a name="a-li-ba-ba-pu-hui-ti" href="#a-li-ba-ba-pu-hui-ti" class="heading-anchor"></a></h3>
+<p>免费使用<sup class="footnote-ref"><a href="#fn-2" id="fnref-2" data-footnote-ref>2</a></sup>/无需授权<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup></p>
+<p><img src="/assets/media/8/8a/8aeed6a8d34a2a20.jpg" alt="阿里巴巴普惠体" width="3680px" height="2006px" /></p>
+<ul>
+<li>官网：<a href="https://www.iconfont.cn/fonts/detail?cnid=adI1E7HF7yme">https://www.iconfont.cn/fonts/detail?cnid=adI1E7HF7yme</a></li>
+<li>备用下载：<a href="https://font.chinaz.com/so/alibabapuhuiti.html">https://font.chinaz.com/so/alibabapuhuiti.html</a></li>
+</ul>
+<h3>霞鹜文楷 / LXGW WenKai<a name="xia-mu-wen-kai-lxgw-wenkai" href="#xia-mu-wen-kai-lxgw-wenkai" class="heading-anchor"></a></h3>
+<p>开源字体<sup class="footnote-ref"><a href="#fn-3" id="fnref-3" data-footnote-ref>3</a></sup>/无需授权<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup></p>
+<p><img src="/assets/media/0/05/051284e6d70dbf11.png" alt="霞鹜文楷" width="1920px" height="1080px" /></p>
+<ul>
+<li><strong>官网介绍</strong>：<a href="https://lxgw.github.io/2021/01/28/Klee-Simpchin/">https://lxgw.github.io/2021/01/28/Klee-Simpchin/</a></li>
+<li><strong>开源地址</strong>：<a href="https://github.com/lxgw/LxgwWenKai">https://github.com/lxgw/LxgwWenKai</a></li>
+<li><strong>下载地址</strong>：<a href="https://github.com/lxgw/LxgwWenKai/releases">https://github.com/lxgw/LxgwWenKai/releases</a></li>
+</ul>
+<h3>云峰寒蝉体<a name="yun-feng-han-chan-ti" href="#yun-feng-han-chan-ti" class="heading-anchor"></a></h3>
+<p>免费使用<sup class="footnote-ref"><a href="#fn-2" id="fnref-2" data-footnote-ref>2</a></sup>/无需授权<sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup></p>
+<p><img src="/assets/media/5/54/542375b7281a1e5d.jpeg" alt="云峰寒蝉体" width="1080px" height="607px" /></p>
+<ul>
+<li><strong>官网介绍</strong>：<a href="https://mp.weixin.qq.com/s/qLRQPJf43h15yPgpcNbLNw">https://mp.weixin.qq.com/s/qLRQPJf43h15yPgpcNbLNw</a></li>
+<li>备用下载：<a href="https://font.chinaz.com/23082137138.htm">https://font.chinaz.com/23082137138.htm</a></li>
+</ul>
+<h3>西文字体<a name="xi-wen-zi-ti" href="#xi-wen-zi-ti" class="heading-anchor"></a></h3>
+<p>风格多样，自行选择吧。</p>
+<ul>
+<li><a href="https://fontlibrary.org/">Font Library</a></li>
+<li><a href="https://fonts.google.com/">Browse Fonts - Google Fonts</a></li>
+<li><a href="https://www.theleagueofmoveabletype.com/">The League of Moveable Type – the first open-source font foundry</a></li>
+</ul>
+<h2>Ref<a name="ref" href="#ref" class="heading-anchor"></a></h2>
+<ul>
+<li><a href="https://font.chinaz.com">站长字体_font.chinaz.com</a></li>
+<li><a href="https://github.com/wordshub/free-font">免费可商用字体，有明确的授权出处，持续更新</a></li>
+<li><a href="https://sspai.com/post/42889">免费字体获取和使用指南 - 少数派</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Open-source_Unicode_typefaces">Open-source Unicode typefaces - Wikipedia</a></li>
+<li><a href="https://github.com/topics/fonts">fonts · GitHub Topics</a></li>
+</ul>
+<hr />
+<section class="footnotes" data-footnotes>
+<ol>
+<li id="fn-1">
+<p>不需要向权利人索取授权。有的字体权利人要求即使免费，但是依旧需要获得授权。 <a href="#fnref-1" class="footnote-backref" data-footnote-backref aria-label="Back to content">↩</a></p>
+</li>
+<li id="fn-2">
+<p>免费使用，含免费商业用途。 <a href="#fnref-2" class="footnote-backref" data-footnote-backref aria-label="Back to content">↩</a></p>
+</li>
+<li id="fn-3">
+<p>开源字体，可以正常免费使用，含商业免费使用。 <a href="#fnref-3" class="footnote-backref" data-footnote-backref aria-label="Back to content">↩</a></p>
+</li>
+</ol>
+</section>
+
+  </div>
+</div>
+
+
+        
+        <div class="footer text-center space-y-2">
+    <div class="footer-nav text-sm">
+        
+    </div>
+    <div class="!text-gray-500 text-xs flex gap-3 justify-center">
+        
+        
+        
+    </div>
+</div>
+        
+    </div>
+
+
+    
+    <script src="/assets/main.dc2e1209.js"></script>
+    
+
+    <link rel="stylesheet" href="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/themes/prism-solarizedlight.css,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css">
+<script src="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/components/prism-core.min.js,npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js,npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+  Prism.plugins.autoloader.languages_path = 'https://jsdelivr.daobox.cc/npm/prismjs@1.29.0/components/';
+</script>
+    
+</body>
+

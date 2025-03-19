@@ -1,0 +1,211 @@
+
+
+<head>
+    <title>
+Algolia 及时搜索 | 🌾大余之道</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Windows-Target" contect="_top" />
+    
+    
+    <link rel="stylesheet" href="/assets/main.dc2e1209.css">
+    
+    <script>window.__everkm_lang = "zh_CN"</script>
+</head>
+
+<body>
+    <div class="body-container">
+        
+        <div class="app-header border-b sticky top-0 z-10 w-full h-[3.5rem] overflow-hidden bg-white flex items-center">
+            
+    <div class="flex-1 flex justify-between items-center px-4 py-2 lg:px-8">
+        <div class="flex items-center">
+            
+
+            <div>
+                <a href="/" class="text-lg !text-gray-800 font-medium">🌾大余之道</a>
+                <span class="hidden lg:inline-block text-gray-600 text-xs"></span>
+            </div>
+        </div>
+        <div class="hidden md:flex space-x-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="false" class="inline-flex" />
+    </div>
+    
+
+            
+    
+    
+
+        </div>
+
+        <div class="flex-shrink-0 ml-4 overflow-hidden md:hidden flex items-center gap-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="true" class="inline-flex" />
+    </div>
+    
+
+            
+            
+<div id="drawer" class="w-6 h-6 flex items-center justify-center active:bg-gray-200 text-[1.4rem]">
+    <span class="icon-[material-symbols--dehaze-rounded]"></span>
+</div>
+
+            
+        </div>
+
+    </div>
+
+        </div>
+        <!-- 左导航栏 -->
+        <div id="aside-nav" class="hidden fixed top-0 w-3/4 max-w-xs px-4 z-20 overscroll-contain border-r overflow-y-auto h-screen md:h-[calc(100vh-var(--app-header-height))] md:w-full md:max-w-none md:top-[3.5rem] md:sticky md:hidden">
+            <div class="drawer-body space-y-4">
+                <div class="md:hidden space-y-1.5 border-b pb-3">
+                    
+    
+    
+
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+<div class="mx-auto max-w-screen-md mb-10 space-y-2 px-4 lg:px-8 pt-3">
+  
+
+  
+  <div class="">
+    
+    <div class="text-zinc-400 text-[0.9em]">
+        
+        
+        <a class="text-zinc-700" href="/">
+            首页
+             </a> 
+        
+         &raquo; 
+        <a class="text-zinc-700" href="/blog/">
+            博客
+             </a> 
+        
+    </div>
+
+  </div>
+  
+
+  <h1 class="text-2xl font-semibold pt-2">Algolia 及时搜索</h1>
+
+  <div class="flex flex-col md:flex-row md:gap-4 text-[0.9em] text-gray-500">
+    <div class="">
+      
+        <span>
+        2024-04-06 17:16:00
+        
+        </span>
+      
+    </div>
+  </div>
+  <div class="markdown-body pt-4">
+    <p>内容逐渐多起来了，搜索是时候搭起来起来了。独立静态站的搜索，Algolia 是无异议的首选。</p>
+<p>集成分为两部分</p>
+<ol>
+<li>索引数据推送</li>
+<li>搜索界面集成</li>
+</ol>
+<h2>索引数据推送<a name="suo-yin-shu-ju-tui-song" href="#suo-yin-shu-ju-tui-song" class="heading-anchor"></a></h2>
+<p>可选方式：</p>
+<ol>
+<li>生成好 json 后，从官网上传。</li>
+<li>自己开发，通过 Rest API or SDK 上传。</li>
+<li>通过官网提供的 <code>DocSearch</code> 上传，该工具使用 Python 语言开发，官方还提供了 Docker 镜像。</li>
+</ol>
+<p>第1种，手动上传不适合自动化。
+本着能用就别动的原则，使用第二种，步骤如下：</p>
+<ol>
+<li>
+<p>配置文件 <code>.env</code>, API KEY 参数</p>
+<pre><code>APPLICATION_ID=&lt;YOUR_APP_ID&gt;
+API_KEY=&lt;YOUR_API_KEY&gt;
+</code></pre>
+</li>
+<li>
+<p>抓取配置文件， <code>config.json</code>, 配置抓取起始地址和内容选择器</p>
+<pre><code class="language-json">{
+    "index_name": "publish",
+    "start_urls": [
+        "https://publish.everkm.cn/"
+    ],
+    "stop_urls": [],
+    "selectors": {
+        "lvl0": "h1",
+        "text": "body"
+    }
+}
+</code></pre>
+</li>
+<li>
+<p>为了跳过依赖，使用 Docker 方式运行</p>
+<pre><code class="language-bash">docker run -it --env-file=.env -e "CONFIG=$(cat ./config.json | jq -r tostring)" algolia/docsearch-scraper
+</code></pre>
+<p>考虑到内存的紧张，再加上之前 Docker Desktop 资源吃紧，索性绕个远道，找个替代品，简单粗暴选择 <a href="/blog/2024/mac-docker-colima.html">Mac Docker colima</a>。期间没那么顺利，果然任何一个小尝试都没想象中简单，<strong>能用就别动的原则依然值得践行</strong>。</p>
+</li>
+</ol>
+<p>使用步骤还是挺简单的，运行也没什么问题，可还是掉入了贫穷陷井，免费服务内容限制在1000个字符，付费也限制在10000，官方给的方案是，做内容拆分后提交。可从 <code>DocSearch</code> 文档中没有发现拆分的参数项，这也意味着，只能走自研这条路了。</p>
+<p>考虑到后续搜索 UI 也需要不少开发工作量，而以后肯定是要提供内置的搜索服务，索性界面也不用官方的，免得以后再开发一遍。真是路途坎坷呀！</p>
+<p><strong>Ref:</strong></p>
+<ul>
+<li><a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/">Prepare your records for indexing | Algolia</a></li>
+<li><a href="https://www.algolia.com/doc/tools/crawler/netlify-plugin/netlify-faq/">Netlify FAQ | Algolia</a></li>
+<li><a href="https://www.algolia.com/doc/guides/building-search-ui/widgets/showcase/js/">Showcase for InstantSearch.js widgets | Algolia</a></li>
+<li><a href="https://juejin.cn/post/7265265606436962341">如何手动跑algolia的爬虫来打造自己的站点搜索呢🤔 - 掘金</a></li>
+<li><a href="https://www.algolia.com/doc/guides/sending-and-managing-data/prepare-your-data/in-depth/index-and-records-size-and-usage-limitations/#record-size-limits">Data, record size, and usage limits | Algolia</a></li>
+<li><a href="https://www.algolia.com/doc/rest-api/search/#hosts">Search API reference | Algolia</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+        
+        <div class="footer text-center space-y-2">
+    <div class="footer-nav text-sm">
+        
+    </div>
+    <div class="!text-gray-500 text-xs flex gap-3 justify-center">
+        
+        
+        
+    </div>
+</div>
+        
+    </div>
+
+
+    
+    <script src="/assets/main.dc2e1209.js"></script>
+    
+
+    <link rel="stylesheet" href="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/themes/prism-solarizedlight.css,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css">
+<script src="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/components/prism-core.min.js,npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js,npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+  Prism.plugins.autoloader.languages_path = 'https://jsdelivr.daobox.cc/npm/prismjs@1.29.0/components/';
+</script>
+    
+</body>
+

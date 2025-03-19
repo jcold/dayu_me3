@@ -1,0 +1,187 @@
+
+
+<head>
+    <title>
+音视频转换 | 🌾大余之道</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Windows-Target" contect="_top" />
+    
+    
+    <link rel="stylesheet" href="/assets/main.dc2e1209.css">
+    
+    <script>window.__everkm_lang = "zh_CN"</script>
+</head>
+
+<body>
+    <div class="body-container">
+        
+        <div class="app-header border-b sticky top-0 z-10 w-full h-[3.5rem] overflow-hidden bg-white flex items-center">
+            
+    <div class="flex-1 flex justify-between items-center px-4 py-2 lg:px-8">
+        <div class="flex items-center">
+            
+
+            <div>
+                <a href="/" class="text-lg !text-gray-800 font-medium">🌾大余之道</a>
+                <span class="hidden lg:inline-block text-gray-600 text-xs"></span>
+            </div>
+        </div>
+        <div class="hidden md:flex space-x-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="false" class="inline-flex" />
+    </div>
+    
+
+            
+    
+    
+
+        </div>
+
+        <div class="flex-shrink-0 ml-4 overflow-hidden md:hidden flex items-center gap-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="true" class="inline-flex" />
+    </div>
+    
+
+            
+            
+<div id="drawer" class="w-6 h-6 flex items-center justify-center active:bg-gray-200 text-[1.4rem]">
+    <span class="icon-[material-symbols--dehaze-rounded]"></span>
+</div>
+
+            
+        </div>
+
+    </div>
+
+        </div>
+        <!-- 左导航栏 -->
+        <div id="aside-nav" class="hidden fixed top-0 w-3/4 max-w-xs px-4 z-20 overscroll-contain border-r overflow-y-auto h-screen md:h-[calc(100vh-var(--app-header-height))] md:w-full md:max-w-none md:top-[3.5rem] md:sticky md:hidden">
+            <div class="drawer-body space-y-4">
+                <div class="md:hidden space-y-1.5 border-b pb-3">
+                    
+    
+    
+
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+<div class="mx-auto max-w-screen-md mb-10 space-y-2 px-4 lg:px-8 pt-3">
+  
+
+  
+  <div class="">
+    
+    <div class="text-zinc-400 text-[0.9em]">
+        
+        
+        <a class="text-zinc-700" href="/">
+            首页
+             </a> 
+        
+         &raquo; 
+        <a class="text-zinc-700" href="/blog/">
+            博客
+             </a> 
+        
+    </div>
+
+  </div>
+  
+
+  <h1 class="text-2xl font-semibold pt-2">音视频转换</h1>
+
+  <div class="flex flex-col md:flex-row md:gap-4 text-[0.9em] text-gray-500">
+    <div class="">
+      
+        <span>
+        2024-06-25 15:13:00
+        <em>更新</em>
+        </span>
+      
+    </div>
+  </div>
+  <div class="markdown-body pt-4">
+    <h2>wma 音频转 mp3<a name="wma-yin-pin-zhuan-mp3" href="#wma-yin-pin-zhuan-mp3" class="heading-anchor"></a></h2>
+<pre><code class="language-bash"># 转换当前目录和子目录下所有 wma 文件格式为 mp3
+find . -type f -name "*.wma" -exec ffmpeg -i {} -codec:a libmp3lame -qscale:a 2 {}.mp3 \;
+</code></pre>
+<p>解释：</p>
+<ul>
+<li><code>-codec:a libmp3lame</code>：指定音频编解码器为 libmp3lame，用于将音频编码为 MP3 格式。</li>
+<li><code>-qscale:a 2</code>：指定 MP3 的质量，取值范围为 0-9，其中 0 是最高质量，9 是最低质量，一般推荐使用 2-5 之间的值。</li>
+</ul>
+<h2>下载网络 ts/m3u8 资源到 mp4<a name="xia-zai-wang-luo-ts-m3u8-zi-yuan-dao-mp4" href="#xia-zai-wang-luo-ts-m3u8-zi-yuan-dao-mp4" class="heading-anchor"></a></h2>
+<pre><code class="language-bash">ffmpeg -http_persistent 0 -i https://address.m3u8 -c copy output.mp4
+</code></pre>
+<p>如果需要下载 m3u8 中指定时间片段的视频，
+首先需要定位，但一般的 m3u8 精确定位不容易，最简单的笨办法是，
+先拉到大概的时间位置，找到 <code>.ts</code> 文件名，再拖到想要的结尾处，记下文件名，
+将 m3u8 文件保存到本地后，只保留这两个文件名区域内的记录，注意保留 m3u8 的文件头和尾，
+再确认文件中若不是绝对路径，需要补充上原始的域名（与 m3u8 地址同样的域名），
+这样可以直接用本地的 m3u8 文件副本作为输入源下载，下载完成后再通过下面的时间参数作精确裁剪。对于大视频截取甚好。</p>
+<pre><code class="language-bash"># 指定截取时间
+ffmpeg  -i shu2.mp4 -ss 02:19 -to 06:26 -c copy shu22.mp4
+</code></pre>
+<ul>
+<li><code>-ss</code>: 开始时间</li>
+<li><code>-to</code>: 结尾时间</li>
+<li><code>-t</code>: 持续时间</li>
+</ul>
+<p><strong>Ref:</strong></p>
+<ol>
+<li><a href="https://zxs.io/article/1893">如何用ffmpeg截取视频片段&amp;截取时间不准确的坑</a></li>
+<li><a href="https://www.cnblogs.com/xuejianbest/p/10285284.html">ffmpeg截取视频片段 - xuejianbest - 博客园</a></li>
+</ol>
+
+  </div>
+</div>
+
+
+        
+        <div class="footer text-center space-y-2">
+    <div class="footer-nav text-sm">
+        
+    </div>
+    <div class="!text-gray-500 text-xs flex gap-3 justify-center">
+        
+        
+        
+    </div>
+</div>
+        
+    </div>
+
+
+    
+    <script src="/assets/main.dc2e1209.js"></script>
+    
+
+    <link rel="stylesheet" href="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/themes/prism-solarizedlight.css,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css">
+<script src="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/components/prism-core.min.js,npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js,npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+  Prism.plugins.autoloader.languages_path = 'https://jsdelivr.daobox.cc/npm/prismjs@1.29.0/components/';
+</script>
+    
+</body>
+
