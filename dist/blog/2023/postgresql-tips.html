@@ -1,0 +1,287 @@
+
+
+<head>
+    <title>
+PostgreSQL三板斧 | 🌾大余之道</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Windows-Target" contect="_top" />
+    
+    
+    <link rel="stylesheet" href="/assets/main.dc2e1209.css">
+    
+    <script>window.__everkm_lang = "zh_CN"</script>
+</head>
+
+<body>
+    <div class="body-container">
+        
+        <div class="app-header border-b sticky top-0 z-10 w-full h-[3.5rem] overflow-hidden bg-white flex items-center">
+            
+    <div class="flex-1 flex justify-between items-center px-4 py-2 lg:px-8">
+        <div class="flex items-center">
+            
+
+            <div>
+                <a href="/" class="text-lg !text-gray-800 font-medium">🌾大余之道</a>
+                <span class="hidden lg:inline-block text-gray-600 text-xs"></span>
+            </div>
+        </div>
+        <div class="hidden md:flex space-x-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="false" class="inline-flex" />
+    </div>
+    
+
+            
+    
+    
+
+        </div>
+
+        <div class="flex-shrink-0 ml-4 overflow-hidden md:hidden flex items-center gap-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="true" class="inline-flex" />
+    </div>
+    
+
+            
+            
+<div id="drawer" class="w-6 h-6 flex items-center justify-center active:bg-gray-200 text-[1.4rem]">
+    <span class="icon-[material-symbols--dehaze-rounded]"></span>
+</div>
+
+            
+        </div>
+
+    </div>
+
+        </div>
+        <!-- 左导航栏 -->
+        <div id="aside-nav" class="hidden fixed top-0 w-3/4 max-w-xs px-4 z-20 overscroll-contain border-r overflow-y-auto h-screen md:h-[calc(100vh-var(--app-header-height))] md:w-full md:max-w-none md:top-[3.5rem] md:sticky md:hidden">
+            <div class="drawer-body space-y-4">
+                <div class="md:hidden space-y-1.5 border-b pb-3">
+                    
+    
+    
+
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+<div class="mx-auto max-w-screen-md mb-10 space-y-2 px-4 lg:px-8 pt-3">
+  
+
+  
+  <div class="">
+    
+    <div class="text-zinc-400 text-[0.9em]">
+        
+        
+        <a class="text-zinc-700" href="/">
+            首页
+             </a> 
+        
+         &raquo; 
+        <a class="text-zinc-700" href="/blog/">
+            博客
+             </a> 
+        
+    </div>
+
+  </div>
+  
+
+  <h1 class="text-2xl font-semibold pt-2">PostgreSQL三板斧</h1>
+
+  <div class="flex flex-col md:flex-row md:gap-4 text-[0.9em] text-gray-500">
+    <div class="">
+      
+        <span>
+        2023-10-23 14:02:00
+        <em>更新</em>
+        </span>
+      
+    </div>
+  </div>
+  <div class="markdown-body pt-4">
+    <p><em>本页目录</em></p>
+<div class="md-toc"><ul>
+<li><a href="#cha-kan-xiang-guan-mu-lu">查看相关目录</a></li>
+<li><a href="#bei-fen-yu-hui-fu-shu-ju">备份与恢复数据</a></li>
+<li><a href="#kong-zhi-zhi-ling">控制指令</a></li>
+<li><a href="#chang-yong-yun-wei-sql">常用运维SQL</a></li>
+<li><a href="#yong-hu-yu-quan-xian">用户与权限</a></li>
+<li><a href="#macben-di-de-luo-pao-pgshu-ju-ku">Mac本地的裸跑PG数据库</a></li>
+</ul>
+</div>
+<h2>查看相关目录<a name="cha-kan-xiang-guan-mu-lu" href="#cha-kan-xiang-guan-mu-lu" class="heading-anchor"></a></h2>
+<pre><code class="language-sql">-- 配置文件位置
+show config_file;
+
+-- 数据目录。如果配置项使用相对路径，则基于此数据目录。
+show data_directory;
+
+-- 日志目录
+show log_directory;
+</code></pre>
+<h2>备份与恢复数据<a name="bei-fen-yu-hui-fu-shu-ju" href="#bei-fen-yu-hui-fu-shu-ju" class="heading-anchor"></a></h2>
+<p>注意：以下命令演示基于数据库部署在Docker容器中。</p>
+<pre><code class="language-bash"># 备份导出
+
+# 从数据库服务器本地导出指定数据库
+# format用 p(plantext), 其他格式没测成功
+docker exec -ti devops-postgres-1 pg_dump --format=p -d tehaochi &gt; tehaochi.sql
+
+# 仅导出库结构，参数 `-s`
+# 仅导出数据，参数 `-a`
+# 仅导出指定表，参数 `-t mytable`
+# 若需身份验证，参数 `-U myuser`
+
+
+# 恢复数据
+
+# 需要先将本分复制到容器中
+docker cp tehaochi.sql devops-postgres-1:/root/
+
+# 创建数据库
+docker exec -ti devops-postgres-1 createdb tehaochi
+
+# psql导入
+docker exec -ti devops-postgres-1 psql -d tehaochi -f /root/tehaochi.sql
+</code></pre>
+<h2>控制指令<a name="kong-zhi-zhi-ling" href="#kong-zhi-zhi-ling" class="heading-anchor"></a></h2>
+<pre><code class="language-bash"># 连接并进入Sql交互模式
+psql
+
+# 列出所有数据库
+\l
+
+# 当前连接信息
+\c
+
+# 切换数据
+\c [database]
+
+# 所有用户
+\du
+
+# 表（含seq)
+\d
+
+# 用户表
+\dt
+
+# 表字段
+\d [table]
+
+</code></pre>
+<h2>常用运维SQL<a name="chang-yong-yun-wei-sql" href="#chang-yong-yun-wei-sql" class="heading-anchor"></a></h2>
+<pre><code class="language-sql">-- 查看数据库启动时长
+SELECT date_trunc('second', current_timestamp - pg_postmaster_start_time()) as uptime;
+
+-- 当前数据库**表**占用的硬盘空间
+-- 其他数据库将current_database()换为数据库名
+SELECT pg_size_pretty(pg_database_size(current_database()));
+
+-- 指定表和索引空间
+-- ref: https://pgpedia.info/p/pg_total_relation_size.html
+SELECT pg_size_pretty(pg_total_relation_size('your table'));
+
+-- 踢出所有指定数据库的连接
+SELECT pg_terminate_backend (pid) FROM pg_stat_activity WHERE datname = 'db';
+
+-- 数据重命名（需要先断开与该库的连接）
+ALTER DATABASE db RENAME TO newdb;
+</code></pre>
+<h2>用户与权限<a name="yong-hu-yu-quan-xian" href="#yong-hu-yu-quan-xian" class="heading-anchor"></a></h2>
+<pre><code class="language-sql">-- 当前用户
+select * from current_user;
+-- or
+select user;
+
+-- 所有用户
+SELECT usename FROM pg_user;
+
+-- 创建用户
+CREATE USER tehaochi_u WITH PASSWORD 'your password';
+
+-- 授权
+-- 库权限
+GRANT ALL PRIVILEGES ON DATABASE tehaochi TO tehaochi_u;
+-- 表权限（专家级别在用）
+GRANT SELECT, INSERT, UPDATE, DELETE ON tablename TO username_u;
+
+-- 刷新用户权限
+ALTER USER tehaochi_u;
+
+-- 吊销用户权限，删除之前比需要做。
+REVOKE ALL PRIVILEGES ON DATABASE tehaochi FROM tehaochi_u;
+DROP USER tehaochi_u;
+-- 如果用户在线，必须踢出
+SELECT pg_terminate_backend(pg_stat_activity.pid)
+    FROM pg_stat_activity
+    WHERE pg_stat_activity.usename = 'tehaochi';
+</code></pre>
+<h2>Mac本地的裸跑PG数据库<a name="macben-di-de-luo-pao-pgshu-ju-ku" href="#macben-di-de-luo-pao-pgshu-ju-ku" class="heading-anchor"></a></h2>
+<pre><code class="language-bash"># 初始化数据库
+initdb --locale=C -E UTF-8 /usr/local/var/postgresql@14
+
+# 服务启动
+brew services start postgresql@14
+
+# 启动命令
+/usr/local/opt/postgresql@14/bin/postgres -D /usr/local/var/postgresql@14
+
+# 命令连接
+psql -h localhost -U dayu -d postgres
+</code></pre>
+
+  </div>
+</div>
+
+
+        
+        <div class="footer text-center space-y-2">
+    <div class="footer-nav text-sm">
+        
+    </div>
+    <div class="!text-gray-500 text-xs flex gap-3 justify-center">
+        
+        
+        
+    </div>
+</div>
+        
+    </div>
+
+
+    
+    <script src="/assets/main.dc2e1209.js"></script>
+    
+
+    <link rel="stylesheet" href="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/themes/prism-solarizedlight.css,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css">
+<script src="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/components/prism-core.min.js,npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js,npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+  Prism.plugins.autoloader.languages_path = 'https://jsdelivr.daobox.cc/npm/prismjs@1.29.0/components/';
+</script>
+    
+</body>
+

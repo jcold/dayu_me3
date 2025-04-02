@@ -1,0 +1,192 @@
+
+
+<head>
+    <title>
+微信生态开发 | 🌾大余之道</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Windows-Target" contect="_top" />
+    
+    
+    <link rel="stylesheet" href="/assets/main.dc2e1209.css">
+    
+    <script>window.__everkm_lang = "zh_CN"</script>
+</head>
+
+<body>
+    <div class="body-container">
+        
+        <div class="app-header border-b sticky top-0 z-10 w-full h-[3.5rem] overflow-hidden bg-white flex items-center">
+            
+    <div class="flex-1 flex justify-between items-center px-4 py-2 lg:px-8">
+        <div class="flex items-center">
+            
+
+            <div>
+                <a href="/" class="text-lg !text-gray-800 font-medium">🌾大余之道</a>
+                <span class="hidden lg:inline-block text-gray-600 text-xs"></span>
+            </div>
+        </div>
+        <div class="hidden md:flex space-x-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="false" class="inline-flex" />
+    </div>
+    
+
+            
+    
+    
+
+        </div>
+
+        <div class="flex-shrink-0 ml-4 overflow-hidden md:hidden flex items-center gap-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="true" class="inline-flex" />
+    </div>
+    
+
+            
+            
+<div id="drawer" class="w-6 h-6 flex items-center justify-center active:bg-gray-200 text-[1.4rem]">
+    <span class="icon-[material-symbols--dehaze-rounded]"></span>
+</div>
+
+            
+        </div>
+
+    </div>
+
+        </div>
+        <!-- 左导航栏 -->
+        <div id="aside-nav" class="hidden fixed top-0 w-3/4 max-w-xs px-4 z-20 overscroll-contain border-r overflow-y-auto h-screen md:h-[calc(100vh-var(--app-header-height))] md:w-full md:max-w-none md:top-[3.5rem] md:sticky md:hidden">
+            <div class="drawer-body space-y-4">
+                <div class="md:hidden space-y-1.5 border-b pb-3">
+                    
+    
+    
+
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+<div class="mx-auto max-w-screen-md mb-10 space-y-2 px-4 lg:px-8 pt-3">
+  
+
+  
+  <div class="">
+    
+    <div class="text-zinc-400 text-[0.9em]">
+        
+        
+        <a class="text-zinc-700" href="/">
+            首页
+             </a> 
+        
+         &raquo; 
+        <a class="text-zinc-700" href="/blog/">
+            博客
+             </a> 
+        
+    </div>
+
+  </div>
+  
+
+  <h1 class="text-2xl font-semibold pt-2">微信生态开发</h1>
+
+  <div class="flex flex-col md:flex-row md:gap-4 text-[0.9em] text-gray-500">
+    <div class="">
+      
+        <span>
+        2023-10-10 16:57:00
+        
+        </span>
+      
+    </div>
+  </div>
+  <div class="markdown-body pt-4">
+    <p><strong>本页目录</strong></p>
+<p>{{daobox::toc()}}</p>
+<hr />
+<h1>微信中网页调试<a name="wei-xin-zhong-wang-ye-diao-shi" href="#wei-xin-zhong-wang-ye-diao-shi" class="heading-anchor"></a></h1>
+<blockquote>
+<p>微信从8.0.19后,将原来的x5内核换成了xweb,原来的vConsole调试就无法使用了。<br />
+使用chrome浏览器真机调试,也无法显示调试。</p>
+</blockquote>
+<ul>
+<li>手机用usb连接至电脑</li>
+<li>手机微信内点击 <a href="http://debugxweb.qq.com/?inspector=true">http://debugxweb.qq.com/?inspector=true</a></li>
+<li>打开手机上打开需要调试的网页</li>
+<li>在chrome浏览器打开 chrome://inspect/#devices</li>
+</ul>
+<p>有时chrome浏览器可能打开的比较慢,可以换用Edge浏览器(谷歌内核的那个版本),效果是一样的。</p>
+<p>根据包名找到需要调试的网址，如微信调试的网址就在 com.tencent.mm 下面，
+在点击网址下面的inspect 直接调试。</p>
+<h1>❓ Android调试微信页面，chrome的inspect弹出空白<a name="androiddiao-shi-wei-xin-ye-mian-chromede-inspectdan-chu-kong-bai" href="#androiddiao-shi-wei-xin-ye-mian-chromede-inspectdan-chu-kong-bai" class="heading-anchor"></a></h1>
+<p>因为国内无法访问 <a href="https://chrome-devtools-frontend.appspot.com">https://chrome-devtools-frontend.appspot.com</a> 所致，所以可以使用HOSTS解析的方式，步骤如下：</p>
+<ol>
+<li>
+<p>打开Windows系统 C 盘路径：<code>C:\Windows\System32\drivers\etc\</code> 或 Linux/MacOS 系统 <code>/etc/hosts</code></p>
+</li>
+<li>
+<p>打开 hosts 文件，在末尾追加如下</p>
+</li>
+</ol>
+<pre><code>61.91.161.217 chrome-devtools-frontend.appspot.com
+61.91.161.217 chrometophone.appspot.com
+</code></pre>
+<p>又或者科学上网也能解决。</p>
+<p><strong>Ref</strong>:</p>
+<ul>
+<li><a href="https://blog.csdn.net/u010246360/article/details/80949486">解决Android调试微信页面，chrome的inspect弹出空白-CSDN博客</a></li>
+<li><a href="https://www.guiyunweb.com/archives/wei-xin-kai-qi-wang-ye-diao-shi">归云的个人小站</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+        
+        <div class="footer text-center space-y-2">
+    <div class="footer-nav text-sm">
+        
+    </div>
+    <div class="!text-gray-500 text-xs flex gap-3 justify-center">
+        
+        
+        
+    </div>
+</div>
+        
+    </div>
+
+
+    
+    <script src="/assets/main.dc2e1209.js"></script>
+    
+
+    <link rel="stylesheet" href="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/themes/prism-solarizedlight.css,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css">
+<script src="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/components/prism-core.min.js,npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js,npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+  Prism.plugins.autoloader.languages_path = 'https://jsdelivr.daobox.cc/npm/prismjs@1.29.0/components/';
+</script>
+    
+</body>
+

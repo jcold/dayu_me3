@@ -1,0 +1,528 @@
+
+
+<head>
+    <title>
+我的理想Markdown语法 | 🌾大余之道</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Windows-Target" contect="_top" />
+    
+    
+    <link rel="stylesheet" href="/assets/main.dc2e1209.css">
+    
+    <script>window.__everkm_lang = "zh_CN"</script>
+</head>
+
+<body>
+    <div class="body-container">
+        
+        <div class="app-header border-b sticky top-0 z-10 w-full h-[3.5rem] overflow-hidden bg-white flex items-center">
+            
+    <div class="flex-1 flex justify-between items-center px-4 py-2 lg:px-8">
+        <div class="flex items-center">
+            
+
+            <div>
+                <a href="/" class="text-lg !text-gray-800 font-medium">🌾大余之道</a>
+                <span class="hidden lg:inline-block text-gray-600 text-xs"></span>
+            </div>
+        </div>
+        <div class="hidden md:flex space-x-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="false" class="inline-flex" />
+    </div>
+    
+
+            
+    
+    
+
+        </div>
+
+        <div class="flex-shrink-0 ml-4 overflow-hidden md:hidden flex items-center gap-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="true" class="inline-flex" />
+    </div>
+    
+
+            
+            
+<div id="drawer" class="w-6 h-6 flex items-center justify-center active:bg-gray-200 text-[1.4rem]">
+    <span class="icon-[material-symbols--dehaze-rounded]"></span>
+</div>
+
+            
+        </div>
+
+    </div>
+
+        </div>
+        <!-- 左导航栏 -->
+        <div id="aside-nav" class="hidden fixed top-0 w-3/4 max-w-xs px-4 z-20 overscroll-contain border-r overflow-y-auto h-screen md:h-[calc(100vh-var(--app-header-height))] md:w-full md:max-w-none md:top-[3.5rem] md:sticky md:hidden">
+            <div class="drawer-body space-y-4">
+                <div class="md:hidden space-y-1.5 border-b pb-3">
+                    
+    
+    
+
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+<div class="mx-auto max-w-screen-md mb-10 space-y-2 px-4 lg:px-8 pt-3">
+  
+
+  
+  <div class="">
+    
+    <div class="text-zinc-400 text-[0.9em]">
+        
+        
+        <a class="text-zinc-700" href="/">
+            首页
+             </a> 
+        
+         &raquo; 
+        <a class="text-zinc-700" href="/blog/">
+            博客
+             </a> 
+        
+    </div>
+
+  </div>
+  
+
+  <h1 class="text-2xl font-semibold pt-2">我的理想Markdown语法</h1>
+
+  <div class="flex flex-col md:flex-row md:gap-4 text-[0.9em] text-gray-500">
+    <div class="">
+      
+        <span>
+        2023-10-03 10:57:00
+        <em>更新</em>
+        </span>
+      
+    </div>
+  </div>
+  <div class="markdown-body pt-4">
+    <p class="notice" style="background-color:#FAC03D; text-align:center;" data-extra="class,style"><em>停止更新！请前往<a href="https://publish.everkm.cn">道盒发布</a>获得支持。</em></p>
+<p><strong>本页目录</strong></p>
+<div class="md-toc"><ul>
+<li><a href="#geng-xin-ri-zhi">更新日志</a>
+<ul>
+<li><a href="#2023-10-03">2023-10-03</a></li>
+<li><a href="#2023-09-22">2023-09-22</a></li>
+<li><a href="#2023-09-12">2023-09-12</a></li>
+</ul>
+</li>
+<li><a href="#ji-chu-yu-fa-white-check-mark">基础语法 ✅</a></li>
+<li><a href="#yu-fa-kuo-zhan">语法扩展</a>
+<ul>
+<li><a href="#hong">宏</a>
+<ul>
+<li><a href="#toc-table-of-content-white-check-mark">TOC (Table of content) ✅</a></li>
+<li><a href="#bao-han-wai-bu-wen-jian-white-check-mark">包含外部文件 ✅</a></li>
+</ul>
+</li>
+<li><a href="#nei-bu-lian-jie-white-check-mark">内部链接 ✅</a></li>
+<li><a href="#ye-nei-mao-dian-white-check-mark">页内锚点 ✅</a></li>
+<li><a href="#zi-dong-zhuan-huan-lian-jie-white-check-mark">自动转换链接 ✅</a></li>
+<li><a href="#biao-ti-lian-jie-tu-pian-kuo-zhan-shu-xing-white-check-mark">标题、链接、图片扩展属性 ✅</a></li>
+<li><a href="#duan-luo-shu-xing-white-check-mark">段落属性 ✅</a></li>
+<li><a href="#wen-zi-yan-se-bei-jing-se-zi-ti-white-check-mark">文字颜色、背景色、字体 ✅</a></li>
+<li><a href="#biao-ge-white-check-mark">表格 ✅</a></li>
+<li><a href="#ding-yi-lie-biao-definition-lists-white-check-mark">定义列表 （Definition Lists） ✅</a></li>
+<li><a href="#jiao-zhu-yin-yong-white-check-mark">脚注/引用 ✅</a></li>
+<li><a href="#qiang-diao">强调</a>
+<ul>
+<li><a href="#shan-chu-xian-white-check-mark">删除线 ✅</a></li>
+<li><a href="#xia-hua-xian-white-check-mark">下划线 ✅</a></li>
+<li><a href="#shang-biao-white-check-mark">上标 ✅</a></li>
+<li><a href="#xia-biao-white-check-mark">下标 ✅</a></li>
+</ul>
+</li>
+<li><a href="#ren-wu-lie-biao-white-check-mark">任务列表 ✅</a></li>
+<li><a href="#gao-liang-white-check-mark">高亮 ✅</a></li>
+<li><a href="#te-shu-zi-fu-ti-huan-white-check-mark">特殊字符替换 ✅</a></li>
+<li><a href="#chang-yong-fu-hao-white-check-mark">常用符号 ✅</a></li>
+<li><a href="#can-kao">参考</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h1>更新日志<a name="geng-xin-ri-zhi" href="#geng-xin-ri-zhi" class="heading-anchor"></a></h1>
+<h2>2023-10-03<a name="2023-10-03" href="#2023-10-03" class="heading-anchor"></a></h2>
+<p>本格式规范迁移至<a href="https://publish.everkm.cn">道盒发布</a>实现，希望能为有相关痛点的你提供帮助。至此不再更新，如有意见建议，欢迎前往<a href="https://publish.everkm.cn">道盒发布</a>讨论。</p>
+<h2>2023-09-22<a name="2023-09-22" href="#2023-09-22" class="heading-anchor"></a></h2>
+<p><strong>新增</strong></p>
+<ul>
+<li><a href="#everkm-macro">宏</a><code>{{everkm::include()}}</code>包含</li>
+<li><a href="#inner-link">内部链接</a></li>
+<li><a href="#page-anchor">页内锚点</a></li>
+</ul>
+<h2>2023-09-12<a name="2023-09-12" href="#2023-09-12" class="heading-anchor"></a></h2>
+<p>比较难找到符合需求的Markdown解析器，所以花了些时间自己实现了个。已集成至<a href="https://publish.everkm.cn">道盒发布</a>，免费使用，Enjoy! 🚱 👎 👍 🎉🎉🎉</p>
+<hr />
+<p>用了这么长时间文本编辑器，总对格式不能自由掌控感到不快，直到使用了Markdown。Markdown是近年来较为流行的文本标记语言，简单易用是它的核心特点，因为简单，所以格式不是那么丰富，在某些场景下无法满足需求，若是退回，则又回到开始，纠结使用哪个编辑器。索性今天整理下Markdown语法诉求，看看能否对其扩展，以满足日常需求？</p>
+<h1>基础语法 ✅<a name="ji-chu-yu-fa-white-check-mark" href="#ji-chu-yu-fa-white-check-mark" class="heading-anchor"></a></h1>
+<ol>
+<li>基于<a href="https://daringfireball.net/projects/markdown/syntax">Markdown标准语法</a><sup class="footnote-ref"><a href="#fn-1" id="fnref-1" data-footnote-ref>1</a></sup>。部分格式有几种表达方式，这里仅罗列其一种。</li>
+<li>补充<a href="https://github.github.com/gfm/">Github Markdown</a><sup class="footnote-ref"><a href="#fn-2" id="fnref-2" data-footnote-ref>2</a></sup>扩展语法。</li>
+</ol>
+<pre>
+
+# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+
+
+* 无序列表1
+* 无序列表2
+* 无序列表3
+
+
+1. 有序列表1
+1. 有序列表2
+1. 有序列表3
+1. 可以顺序标号，或者全部用1
+    最终渲染时会自动矫正编号。
+    如果前面带有缩进，会自动归为上个列表项的范围。
+
+
+`行内代码`
+
+
+```js
+console.log('代码块+语法高亮')
+```
+
+
+水平分割线
+---
+
+
+[链接](https://www.everkm.cn "标题可省略")
+[页内链接](#链接ID)
+
+
+![图片替换描述](/path/to/img.jpg "图片标题可省略")
+
+
+*斜体*
+**粗体**
+***粗斜体***
+
+
+> 引用内容
+> 嵌套内容可以包含上面的格式
+> > 嵌套引用内容
+
+</pre>
+<h1>语法扩展<a name="yu-fa-kuo-zhan" href="#yu-fa-kuo-zhan" class="heading-anchor"></a></h1>
+
+<h2 data-tags="everkm-macro" data-extra="data-tags">宏<a name="hong" href="#hong" class="heading-anchor"></a></h2>
+<h3>TOC (Table of content) ✅<a name="toc-table-of-content-white-check-mark" href="#toc-table-of-content-white-check-mark" class="heading-anchor"></a></h3>
+<p>对于长篇大作，良好的目录索引（TOC）对阅读很有帮助，所以需要增加TOC的宏标记，渲染时自动替换。效果见本页开始。</p>
+<pre><code class="language-markdown">[TOC]
+
+{{everkm::toc()}}
+
+{{everkm::toc(level=1)}}
+</code></pre>
+<p>可选参数：</p>
+<ul>
+<li><code>level</code> 搜索的标题级别，默认 <code>level=3</code></li>
+</ul>
+<p><strong>Toc 示例</strong></p>
+<ul>
+<li><a href="#geng-xin-ri-zhi">更新日志</a></li>
+<li><a href="#ji-chu-yu-fa-white-check-mark">基础语法 ✅</a></li>
+<li><a href="#yu-fa-kuo-zhan">语法扩展</a></li>
+</ul>
+
+<hr />
+<h3>包含外部文件 ✅<a name="bao-han-wai-bu-wen-jian-white-check-mark" href="#bao-han-wai-bu-wen-jian-white-check-mark" class="heading-anchor"></a></h3>
+<p>渲染时将指定文件内容包含进来。仅允许常见的<span style="text-decoration:underline; text-underline-offset:4px;"><strong>纯文本</strong></span>文件，常见扩展名为md, txt, csv, js等程序源文件。</p>
+<p>参数:</p>
+<ul>
+<li><code>file</code>: 文件的绝对路径或者相对路径。</li>
+</ul>
+<p>可选参数：</p>
+<ul>
+<li><code>as</code> 输出格式。取值范围：
+<ol>
+<li><code>plain</code>(默认值)，渲染时原样输出</li>
+<li><code>table</code> 尝试解析为表格</li>
+<li><code>code</code> 代码</li>
+<li><code>md</code> or <code>markdown</code>, 以Markdown格式解析</li>
+</ol>
+</li>
+<li><code>code_lang</code> 编程语言，仅 <code>as="code"</code> 时有效。</li>
+<li><code>table_header</code> 第一行是否为表头，仅 <code>as="table"</code> 时有效。</li>
+<li><code>table_merge</code> 是否自动合并单元格。值与单元格内容相同则合并，合并顺序为先行后列。例如：合并所有空内容的单元格，可以增加参数 <code>table_merge=""</code>。仅 <code>as="table"</code> 时有效。</li>
+</ul>
+<p><strong>包含Markdown示例：</strong></p>
+<pre><code class="language-markdown">{{everkm::include(file="_include_test.inc.md", as="md")}}
+</code></pre>
+<p>我是被<strong>包含</strong>进来的</p>
+
+<hr />
+<p><strong>包含表格示例：</strong></p>
+<p>所有*号内容的单元格自动合并，并且使用扩展属性。</p>
+<pre><code class="language-markdown">{align=center}
+{{everkm::include(file="demo.csv", as="table", table_header=true, table_merge="*")}}
+</code></pre>
+<table align="center" data-extra="align"><tr><th>City</th><th>State</th><th>Population</th><th>Latitude</th><th>Longitude</th></tr><tr><td>Davidsons Landing</td><td>AK</td><td></td><td>65.2419444</td><td>-165.2716667</td></tr><tr><td>Kenai</td><td>AK</td><td rowspan=4 valign="middle">7610</td><td>60.5544444</td><td>-151.2583333</td></tr><tr><td>Oakman</td><td>AL</td><td>33.7133333</td><td>-87.3886111</td></tr><tr><td>Richards Crossroads</td><td>AL</td><td>31.7369444</td><td>-85.2644444</td></tr><tr><td>Sandfort</td><td>AL</td><td>32.3380556</td><td>-85.2233333</td></tr><tr><td>Selma</td><td>AL</td><td>18980</td><td>32.4072222</td><td>-87.0211111</td></tr></table>
+<hr />
+<p><strong>包含代码示例：</strong></p>
+<pre><code class="language-markdown">{{everkm::include(file="_xx.js", as="code", code_lang="js")}}
+</code></pre>
+
+<h2 data-tags="inner-link" data-extra="data-tags">内部链接 ✅<a name="nei-bu-lian-jie-white-check-mark" href="#nei-bu-lian-jie-white-check-mark" class="heading-anchor"></a></h2>
+<p>适用于项目内的文件跳转。支持非HTML页面链接，如PDF文档等，该文件在输出时自动复制到静态资源目录。</p>
+<pre><code class="language-markdown">[[文件名]]
+
+[[...目录/文件名]]
+</code></pre>
+<p>当主题（双括号内为主题）只有一个标题时，则查找整个内容目录，文件名相同（忽略 <code>.md</code> 扩展名）则匹配成功。如果有多个同名文件，则返回第一个。如需避免这种同名定位，可以在前面加上目录限定。目录识别以下几种：</p>
+<ol>
+<li>以 <code>/</code> 打头表示以内容根目录严格匹配。</li>
+<li>以 <code>./</code> (当前文件目录) 或 <code>../</code> (当前文件的上一级目录) 表示以当前文件为基准的相对定位。</li>
+<li>除上述外，均以主题为后缀，搜索所有内容文件。</li>
+</ol>
+<p>示例：<a href="/blog/2023/my-website-forever.html">永不消失的独立站</a></p>
+
+<h2 data-tags="page-anchor" data-extra="data-tags">页内锚点 ✅<a name="ye-nei-mao-dian-white-check-mark" href="#ye-nei-mao-dian-white-check-mark" class="heading-anchor"></a></h2>
+<p>适用于页面内部不同位置之间的跳转。目前仅适用于标题❗。</p>
+<p>标题增加<code>id</code>属性后会自动生成锚点，如果未指定<code>id</code>属性，默认使用<code>HA-</code>加上标题内容地址化<sup class="footnote-ref"><a href="#fn-3" id="fnref-3" data-footnote-ref>3</a></sup>生成锚点，可在链接中使用<code>#id</code>实现页内锚点跳转。</p>
+<h2>自动转换链接 ✅<a name="zi-dong-zhuan-huan-lian-jie-white-check-mark" href="#zi-dong-zhuan-huan-lian-jie-white-check-mark" class="heading-anchor"></a></h2>
+<pre><code class="language-markdown">&lt;https://www.everkm.cn&gt;
+</code></pre>
+<p>hello <a href="https://www.everkm.cn" style="color:red;" target="_blank" data-extra="style,target">https://www.everkm.cn</a> world</p>
+
+<h2 class="main shine" data-tags="the-site" lang="zh" data-extra="class,data-tags,lang">标题、链接、图片扩展属性 ✅<a name="biao-ti-lian-jie-tu-pian-kuo-zhan-shu-xing-white-check-mark" href="#biao-ti-lian-jie-tu-pian-kuo-zhan-shu-xing-white-check-mark" class="heading-anchor"></a></h2>
+<p>可以对下面块增加属性，属性支持CSS样式名，ID，和其他自定义属性</p>
+<ol>
+<li>标题 ✅</li>
+<li>链接 ✅</li>
+<li>图片 ✅</li>
+</ol>
+<pre><code class="language-markdown">带有扩展属性的[道盒](https://www.everkm.cn){color=orangered}链接。
+
+![Air](https://images.unsplash.com/photo-1564979045531-fa386a275b27?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2532&amp;q=80 "蓝天与狗尾巴草"){corner=1em}
+</code></pre>
+<p>带有扩展属性的<a href="https://www.everkm.cn" style="color:orangered;" data-extra="style">道盒</a>链接。</p>
+<p><img src="https://images.unsplash.com/photo-1564979045531-fa386a275b27?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2532&amp;q=80" alt="Air" title="蓝天与狗尾巴草" style="border-radius:1em;" data-extra="style" /> </p>
+<h2>段落属性 ✅<a name="duan-luo-shu-xing-white-check-mark" href="#duan-luo-shu-xing-white-check-mark" class="heading-anchor"></a></h2>
+<pre><code class="language-markdown">{bgcolor="rgba(0,0,0,0.1)" color=blue underline pa=1em corner=0.5em}
+这是一段区块示例内容，它拥有扩展属性。
+</code></pre>
+<p style="background-color:rgba(0,0,0,0.1); border-radius:0.5em; color:blue; padding:1em; text-decoration:underline; text-underline-offset:4px;" data-extra="style">这是一段区块示例内容，它拥有扩展属性。</p>
+<h2>文字颜色、背景色、字体 ✅<a name="wen-zi-yan-se-bei-jing-se-zi-ti-white-check-mark" href="#wen-zi-yan-se-bei-jing-se-zi-ti-white-check-mark" class="heading-anchor"></a></h2>
+<pre><code class="language-markdown">{color=red, bgcolor=yellow .nice}#赤色#
+{font=宋体}#我是有不一样的字体#
+</code></pre>
+<p>我有<span class="nice girl" style="background-color:yellow; color:red;">赤色</span>的文本和<span style="color:blue;">蓝色</span>内容。</p>
+<p>我的字体是<span style="font-family:&quot;思源宋体 CN&quot;;">思源宋体 CN</span>,
+我的字体是<span style="font-family:阿里妈妈东方大楷;">阿里妈妈东方大楷</span>,</p>
+<h2>表格 ✅<a name="biao-ge-white-check-mark" href="#biao-ge-white-check-mark" class="heading-anchor"></a></h2>
+<pre>
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+</pre>
+<p>或者两端加上管道符</p>
+<pre>
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+</pre>
+<p>单元格对齐</p>
+<pre>
+| 默认对齐   | 左对齐 | 中对齐 | 右对齐 |
+| ---       | :---  | :---: | ---:  |
+| Content   | Content | Content | Content |
+| Content   | Content | Content | Content |
+</pre>
+
+<table align="center" class="my-table" data-extra="align,class">
+<thead>
+<tr>
+<th>默认对齐</th>
+<th align="left">左对齐</th>
+<th align="center">中对齐</th>
+<th align="right">右对齐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content</td>
+<td align="left">Content</td>
+<td align="center">Content</td>
+<td align="right">Content</td>
+</tr>
+<tr>
+<td>Content</td>
+<td align="left">Content</td>
+<td align="center">Content</td>
+<td align="right">Content</td>
+</tr>
+</tbody>
+</table>
+<h2>定义列表 （Definition Lists） ✅<a name="ding-yi-lie-biao-definition-lists-white-check-mark" href="#ding-yi-lie-biao-definition-lists-white-check-mark" class="heading-anchor"></a></h2>
+<pre>
+Apple
+
+:   Pomaceous fruit of plants of the genus Malus in 
+    the family Rosaceae.
+
+Orange
+
+:   The fruit of an evergreen tree of the genus Citrus.
+</pre>
+<dl><dt>Apple</dt>
+<dd>
+<p>Pomaceous fruit of plants of the genus Malus in
+the family Rosaceae.</p>
+</dd>
+<dt>Orange</dt>
+<dd>
+<p>The fruit of an evergreen tree of the genus Citrus.</p>
+</dd>
+</dl>
+<h2>脚注/引用 ✅<a name="jiao-zhu-yin-yong-white-check-mark" href="#jiao-zhu-yin-yong-white-check-mark" class="heading-anchor"></a></h2>
+<p><code>[^数字|字母中线下划线组合]</code>字符后面可以用数字标号，或字母与下划线、中线的组合，渲染时系统自动重新编号。</p>
+<pre>
+That's some text with a footnote.[^1]
+
+[^1]: And that's the footnote.
+      That's the second paragraph.
+</pre>
+<p>That's some text with a footnote.<sup class="footnote-ref"><a href="#fn-4" id="fnref-4" data-footnote-ref>4</a></sup></p>
+<h2>强调<a name="qiang-diao" href="#qiang-diao" class="heading-anchor"></a></h2>
+<h3>删除线 ✅<a name="shan-chu-xian-white-check-mark" href="#shan-chu-xian-white-check-mark" class="heading-anchor"></a></h3>
+<pre><code class="language-markdown">~~删除线~~
+</code></pre>
+<p><s>删除线</s></p>
+<h3>下划线 ✅<a name="xia-hua-xian-white-check-mark" href="#xia-hua-xian-white-check-mark" class="heading-anchor"></a></h3>
+<pre><code class="language-markdown">{ul}#下划线#
+</code></pre>
+<p><span style="text-decoration:underline; text-underline-offset:4px;">下划线</span></p>
+<h3>上标 ✅<a name="shang-biao-white-check-mark" href="#shang-biao-white-check-mark" class="heading-anchor"></a></h3>
+<pre><code class="language-markdown">E=MC^2^
+</code></pre>
+<p>E=MC<sup>2</sup></p>
+<h3>下标 ✅<a name="xia-biao-white-check-mark" href="#xia-biao-white-check-mark" class="heading-anchor"></a></h3>
+<pre><code class="language-markdown">H~2~O
+</code></pre>
+<p>H<sub>2</sub>O</p>
+<h2>任务列表 ✅<a name="ren-wu-lie-biao-white-check-mark" href="#ren-wu-lie-biao-white-check-mark" class="heading-anchor"></a></h2>
+<pre><code class="language-markdown">- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media
+</code></pre>
+<ul>
+<li><input type="checkbox" disabled="" checked="" /> Write the press release</li>
+<li><input type="checkbox" disabled="" /> Update the website</li>
+<li><input type="checkbox" disabled="" /> Contact the media</li>
+</ul>
+<h2>高亮 ✅<a name="gao-liang-white-check-mark" href="#gao-liang-white-check-mark" class="heading-anchor"></a></h2>
+<pre><code class="language-markdown">I need to highlight these ==very important words==.
+</code></pre>
+<p>I need to highlight these <mark>very important words</mark>.</p>
+<p>HTML结果</p>
+<pre><code class="language-html">I need to highlight these &lt;mark&gt;very important words&lt;/mark&gt;.
+</code></pre>
+<h2>特殊字符替换 ✅<a name="te-shu-zi-fu-ti-huan-white-check-mark" href="#te-shu-zi-fu-ti-huan-white-check-mark" class="heading-anchor"></a></h2>
+<pre><code class="language-markdown">| =&gt; &amp;#124;
+&gt; =&gt; &amp;gt;
+&lt; =&gt; &amp;lt;
+(C) © 版权
+(TM) ™ 商标
+(R) ® 注册商标
+-- —— 破折号
+... …​省略号
+-&gt; → 右箭头
+&lt;- ← 左箭头
+=&gt; ⇒ 右双箭头
+&lt;= ⇐ 左双箭头
+
+</code></pre>
+<h2>常用符号 ✅<a name="chang-yong-fu-hao-white-check-mark" href="#chang-yong-fu-hao-white-check-mark" class="heading-anchor"></a></h2>
+<ol>
+<li><a href="https://chaooo.github.io/unicode_css3_content/">HTML特殊符号</a> ✅</li>
+<li><a href="https://gist.github.com/rxaviers/7360908">emoji表情符号</a> ✅</li>
+</ol>
+<p>👉查找emoji<a href="https://github-emoji-picker.rickstaa.dev/">表情</a> 😄 💪 。</p>
+<h2>参考<a name="can-kao" href="#can-kao" class="heading-anchor"></a></h2>
+<section class="footnotes" data-footnotes>
+<ol>
+<li id="fn-1">
+<p><a href="https://daringfireball.net/projects/markdown/syntax">https://daringfireball.net/projects/markdown/syntax</a> <a href="#fnref-1" class="footnote-backref" data-footnote-backref aria-label="Back to content">↩</a></p>
+</li>
+<li id="fn-2">
+<p><a href="https://github.github.com/gfm/">https://github.github.com/gfm/</a> <a href="#fnref-2" class="footnote-backref" data-footnote-backref aria-label="Back to content">↩</a></p>
+</li>
+<li id="fn-3">
+<p>通过对文本转换，从而生成有效链接地址。英文字母数字保持原样，空格替换为<code>-</code>，中文每个字符转换拼音后，使用<code>-</code>连接。<mark>注❗</mark>：字母+中文的连接处没有连字符<code>-</code>，如果需要请在中间添加英文空格。 <a href="#fnref-3" class="footnote-backref" data-footnote-backref aria-label="Back to content">↩</a></p>
+</li>
+<li id="fn-4">
+<p>And that's the footnote.
+That's the second paragraph. <a href="#fnref-4" class="footnote-backref" data-footnote-backref aria-label="Back to content">↩</a></p>
+</li>
+</ol>
+</section>
+
+  </div>
+</div>
+
+
+        
+        <div class="footer text-center space-y-2">
+    <div class="footer-nav text-sm">
+        
+    </div>
+    <div class="!text-gray-500 text-xs flex gap-3 justify-center">
+        
+        
+        
+    </div>
+</div>
+        
+    </div>
+
+
+    
+    <script src="/assets/main.dc2e1209.js"></script>
+    
+
+    <link rel="stylesheet" href="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/themes/prism-solarizedlight.css,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css">
+<script src="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/components/prism-core.min.js,npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js,npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+  Prism.plugins.autoloader.languages_path = 'https://jsdelivr.daobox.cc/npm/prismjs@1.29.0/components/';
+</script>
+    
+</body>
+

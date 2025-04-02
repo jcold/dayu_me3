@@ -1,0 +1,242 @@
+
+
+<head>
+    <title>
+Mac Docker colima | 🌾大余之道</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Windows-Target" contect="_top" />
+    
+    
+    <link rel="stylesheet" href="/assets/main.dc2e1209.css">
+    
+    <script>window.__everkm_lang = "zh_CN"</script>
+</head>
+
+<body>
+    <div class="body-container">
+        
+        <div class="app-header border-b sticky top-0 z-10 w-full h-[3.5rem] overflow-hidden bg-white flex items-center">
+            
+    <div class="flex-1 flex justify-between items-center px-4 py-2 lg:px-8">
+        <div class="flex items-center">
+            
+
+            <div>
+                <a href="/" class="text-lg !text-gray-800 font-medium">🌾大余之道</a>
+                <span class="hidden lg:inline-block text-gray-600 text-xs"></span>
+            </div>
+        </div>
+        <div class="hidden md:flex space-x-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="false" class="inline-flex" />
+    </div>
+    
+
+            
+    
+    
+
+        </div>
+
+        <div class="flex-shrink-0 ml-4 overflow-hidden md:hidden flex items-center gap-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="true" class="inline-flex" />
+    </div>
+    
+
+            
+            
+<div id="drawer" class="w-6 h-6 flex items-center justify-center active:bg-gray-200 text-[1.4rem]">
+    <span class="icon-[material-symbols--dehaze-rounded]"></span>
+</div>
+
+            
+        </div>
+
+    </div>
+
+        </div>
+        <!-- 左导航栏 -->
+        <div id="aside-nav" class="hidden fixed top-0 w-3/4 max-w-xs px-4 z-20 overscroll-contain border-r overflow-y-auto h-screen md:h-[calc(100vh-var(--app-header-height))] md:w-full md:max-w-none md:top-[3.5rem] md:sticky md:hidden">
+            <div class="drawer-body space-y-4">
+                <div class="md:hidden space-y-1.5 border-b pb-3">
+                    
+    
+    
+
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+<div class="mx-auto max-w-screen-md mb-10 space-y-2 px-4 lg:px-8 pt-3">
+  
+
+  
+  <div class="">
+    
+    <div class="text-zinc-400 text-[0.9em]">
+        
+        
+        <a class="text-zinc-700" href="/">
+            首页
+             </a> 
+        
+         &raquo; 
+        <a class="text-zinc-700" href="/blog/">
+            博客
+             </a> 
+        
+    </div>
+
+  </div>
+  
+
+  <h1 class="text-2xl font-semibold pt-2">Mac Docker colima</h1>
+
+  <div class="flex flex-col md:flex-row md:gap-4 text-[0.9em] text-gray-500">
+    <div class="">
+      
+        <span>
+        2024-04-06 14:50:00
+        
+        </span>
+      
+    </div>
+  </div>
+  <div class="markdown-body pt-4">
+    <h2>安装启动<a name="an-zhuang-qi-dong" href="#an-zhuang-qi-dong" class="heading-anchor"></a></h2>
+<p>Docker Desktop 在 MAC 上启动太费资源，一直想换掉，今天终于花点时间处理下。</p>
+<p>问了 Claude，Mac 上都有哪些轻量级的 Docker 容器推荐，第一个是 <a href="https://github.com/abiosoft/colima"><code>colima</code></a>, MIT 开源。先用用试试。</p>
+<p>安装挺方便</p>
+<pre><code class="language-bash"># Homebrew
+brew install colima
+
+# 启动
+colima start
+</code></pre>
+<p>不是那么丝滑，报错了</p>
+<pre><code>QEMU (homebrew) was broken on Intel: [hostagent] Driver stopped due to error: "signal: abort trap" (or "exit status 255") ... QEMU has already exited
+</code></pre>
+<p>网上搜索得到：</p>
+<pre><code>brew reinstall -f --force-bottle qemu
+</code></pre>
+<p>尝试后无用，应该是旧版本的 <code>qemu</code> 问题，不过很早已经修复了。继续查找错误日志发现：</p>
+<pre><code>time="2023-08-16T11:22:47-04:00" level=warning msg="QEMU binary "~/.colima/_wrapper/3a9197e1ca3cd2da076da2b473d7a7eb118e2cca/bin/qemu-system-aarch64" is not properly signed with the "com.apple.security.hypervisor" entitlement" error="binary
+</code></pre>
+<p><a href="https://github.com/lima-vm/lima/issues/1742#issuecomment-1680834167">解决方法</a> 👇</p>
+<blockquote>
+<ol>
+<li>ARM Mac or Intel Mac?</li>
+<li>Does <code>limactl start</code> (not <code>colima start</code>) print the same warning? If <code>limactl start</code> does not print a warning, it is an issue of colima.</li>
+<li>Output of <code>codesign --display --entitlements - --xml /opt/homebrew/Cellar/qemu/8.0.4/bin/qemu-system-aarch64</code>  ? (qemu binary path might be different)</li>
+</ol>
+</blockquote>
+<p>通过下面命令启动</p>
+<pre><code class="language-bash">limactl start
+</code></pre>
+<p>会重新 sign，之后不再报错。</p>
+<h2>简单设置<a name="jian-dan-she-zhi" href="#jian-dan-she-zhi" class="heading-anchor"></a></h2>
+<pre><code class="language-bash"># 进入
+colima ssh
+
+# 安装 vim
+apt-get update
+apt-get install -y vim
+
+# 设置 registry_mirrors, proxy
+
+vim /etc/docker/daemon.json
+
+# 重新加载配置
+systemctl daemon-reload
+systemctl restart docker
+</code></pre>
+<p>设置后 <code>cat /etc/docker/daemon.json</code></p>
+<pre><code class="language-json">{
+  "exec-opts": [
+    "native.cgroupdriver=cgroupfs"
+  ],
+  "features": {
+    "buildkit": true
+  },
+  "registry-mirrors": [
+    "https://daeitjf30byu.mirror.aliyuncs.com",
+    "https://hub-mirror.c.163.com",
+    "https://mirror.baidubce.com"
+  ],
+  "proxies": {
+    "http-proxy": "http://192.168.31.239:7890",
+    "https-proxy": "http://192.168.31.239:7890"
+  }
+}
+</code></pre>
+<p>也可以在外面直接执行</p>
+<pre><code class="language-bash">colima ssh -- sudo vim /etc/docker/daemon.json
+</code></pre>
+<p>之后可以愉快的在命令行下 docker 命令了。</p>
+<h2>常见的 Colima CLI 命令及其说明：<a name="chang-jian-de-colima-cli-ming-ling-ji-qi-shuo-ming" href="#chang-jian-de-colima-cli-ming-ling-ji-qi-shuo-ming" class="heading-anchor"></a></h2>
+<ul>
+<li><code>colima start</code> - 启动 Colima 容器运行时。</li>
+<li><code>colima stop</code> - 停止 Colima 容器运行时。</li>
+<li><code>colima restart</code> - 重启 Colima 容器运行时。</li>
+<li><code>colima status</code> - 显示 Colima 容器运行时的状态信息。</li>
+<li><code>colima ssh</code> - 通过 SSH 连接到 Colima 容器运行时。</li>
+<li><code>colima ip</code> - 显示 Colima 容器运行时的 IP 地址。</li>
+<li><code>colima info</code> - 显示有关 Colima 容器运行时的详细信息，包括版本、磁盘使用情况和安装路径等。</li>
+<li><code>colima doctor</code> - 运行诊断程序以检查 Colima 容器运行时的配置和设置是否正确。</li>
+<li><code>colima web</code> - 在本地浏览器中打开容器中运行的应用程序。</li>
+</ul>
+<p>Ref：<a href="https://juejin.cn/post/7223045442892234812">https://juejin.cn/post/7223045442892234812</a></p>
+<h2>使用感受<a name="shi-yong-gan-shou" href="#shi-yong-gan-shou" class="heading-anchor"></a></h2>
+<p>轻量化的期望并没有什么大的改善（可能跟我未做虚拟机的相关设置有关），启动后， qemu 虚拟机还是占用 3G+ 内存，真是伤不起。
+有空再研究。</p>
+
+  </div>
+</div>
+
+
+        
+        <div class="footer text-center space-y-2">
+    <div class="footer-nav text-sm">
+        
+    </div>
+    <div class="!text-gray-500 text-xs flex gap-3 justify-center">
+        
+        
+        
+    </div>
+</div>
+        
+    </div>
+
+
+    
+    <script src="/assets/main.dc2e1209.js"></script>
+    
+
+    <link rel="stylesheet" href="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/themes/prism-solarizedlight.css,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css">
+<script src="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/components/prism-core.min.js,npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js,npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+  Prism.plugins.autoloader.languages_path = 'https://jsdelivr.daobox.cc/npm/prismjs@1.29.0/components/';
+</script>
+    
+</body>
+

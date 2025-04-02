@@ -1,0 +1,178 @@
+
+
+<head>
+    <title>
+android-native-crash-debug | 🌾大余之道</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Windows-Target" contect="_top" />
+    
+    
+    <link rel="stylesheet" href="/assets/main.dc2e1209.css">
+    
+    <script>window.__everkm_lang = "zh_CN"</script>
+</head>
+
+<body>
+    <div class="body-container">
+        
+        <div class="app-header border-b sticky top-0 z-10 w-full h-[3.5rem] overflow-hidden bg-white flex items-center">
+            
+    <div class="flex-1 flex justify-between items-center px-4 py-2 lg:px-8">
+        <div class="flex items-center">
+            
+
+            <div>
+                <a href="/" class="text-lg !text-gray-800 font-medium">🌾大余之道</a>
+                <span class="hidden lg:inline-block text-gray-600 text-xs"></span>
+            </div>
+        </div>
+        <div class="hidden md:flex space-x-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="false" class="inline-flex" />
+    </div>
+    
+
+            
+    
+    
+
+        </div>
+
+        <div class="flex-shrink-0 ml-4 overflow-hidden md:hidden flex items-center gap-3">
+            
+    
+    <div class="inline-flex items-center">
+        <ekm-in-search app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" index="dayu_me" only-button="true" class="inline-flex" />
+    </div>
+    
+
+            
+            
+<div id="drawer" class="w-6 h-6 flex items-center justify-center active:bg-gray-200 text-[1.4rem]">
+    <span class="icon-[material-symbols--dehaze-rounded]"></span>
+</div>
+
+            
+        </div>
+
+    </div>
+
+        </div>
+        <!-- 左导航栏 -->
+        <div id="aside-nav" class="hidden fixed top-0 w-3/4 max-w-xs px-4 z-20 overscroll-contain border-r overflow-y-auto h-screen md:h-[calc(100vh-var(--app-header-height))] md:w-full md:max-w-none md:top-[3.5rem] md:sticky md:hidden">
+            <div class="drawer-body space-y-4">
+                <div class="md:hidden space-y-1.5 border-b pb-3">
+                    
+    
+    
+
+                </div>
+            </div>
+        </div>
+        
+
+        
+
+<div class="mx-auto max-w-screen-md mb-10 space-y-2 px-4 lg:px-8 pt-3">
+  
+
+  
+  <div class="">
+    
+    <div class="text-zinc-400 text-[0.9em]">
+        
+        
+        <a class="text-zinc-700" href="/">
+            首页
+             </a> 
+        
+         &raquo; 
+        <a class="text-zinc-700" href="/blog/">
+            博客
+             </a> 
+        
+    </div>
+
+  </div>
+  
+
+  <h1 class="text-2xl font-semibold pt-2">android-native-crash-debug</h1>
+
+  <div class="flex flex-col md:flex-row md:gap-4 text-[0.9em] text-gray-500">
+    <div class="">
+      
+        <span>
+        2024-06-02 14:38:00
+        
+        </span>
+      
+    </div>
+  </div>
+  <div class="markdown-body pt-4">
+    <p>APP 的健壮运行离不开错误监控，而其中 native 库的 crash 最麻烦，这也是混合语言没有官方推荐单一语言开发简便的原因之一。
+最近 Everkm Note 在集成测试阶段，就遇到 crash 问题，好在经过简单的代码排查，基本可以猜测到原因，问题发生在 rust + bind(libssh) 上面，费了点功夫就修复了（这里还是忍不住夸赞下 Rust 的优秀，什么空指针异常，线程安全，都能很好的规避）。但如果是在生产环境，那就需要许多额外工作才能定位，初步想到的有</p>
+<ol>
+<li>Crash 监控（含 native lib）上报</li>
+<li>符号表管理</li>
+<li>堆栈映射源码位置</li>
+<li>模拟数据测试排查</li>
+</ol>
+<p>此次未来得及深入，待日后继续深究。</p>
+<p>Ref:</p>
+<ol>
+<li><a href="https://www.google.com.hk/search?q=ndk+rust+null+pointer+crash&amp;newwindow=1&amp;sca_esv=d8f10933e16e7e97&amp;sca_upv=1&amp;sxsrf=ADLYWIKyMgAIAeieCBqWbg0afxI_6Z35Vg%3A1717305722331&amp;ei=egFcZr3oE47YseMPvNmbkAU&amp;ved=0ahUKEwi9jbOslryGAxUObGwGHbzsBlIQ4dUDCBA&amp;uact=5&amp;oq=ndk+rust+null+pointer+crash&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiG25kayBydXN0IG51bGwgcG9pbnRlciBjcmFzaDIEECMYJzIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogRI5wxQ6ARY6ARwAngAkAEAmAGfAaABnwGqAQMwLjG4AQPIAQD4AQGYAgGgArcBmAMAiAYBkgcDMC4xoAeYAw&amp;sclient=gws-wiz-serp#ip=1">ndk rust null pointer crash - Google 搜索</a></li>
+<li><a href="https://blog.csdn.net/u012456479/article/details/123111979">Android NDK崩溃行定位_obtaining output fd from tombstoned, type: kdebugg-CSDN博客</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1905391">Android Native Crash问题排查思路-腾讯云开发者社区-腾讯云</a></li>
+<li><a href="https://blog.csdn.net/ryfdizuo/article/details/9011425">android ndk空指针导致CRASH的问题_android ndk构造空指针崩溃-CSDN博客</a></li>
+<li><a href="https://blog.sentry.io/debugging-a-segfault-in-rust/">Debugging a Rust Segfault with Sentry | Product Blog • Sentry</a></li>
+<li><a href="https://github.com/rust-lang/backtrace-rs/issues/442">Cannot get backtrace (stack trace) on Android devices; does this lib support android? · Issue #442 · rust-lang/backtrace-rs</a></li>
+<li><a href="https://github.com/rust-lang/rust/issues/121033">stdlib: Missing backtrace on panic when using <code>std::backtrace::Backtrace</code> vs <code>backtrace::Backtrace</code> on Android · Issue #121033 · rust-lang/rust</a></li>
+<li><a href="https://wufengxue.github.io/2020/06/22/wechat-voice-codec-SEGV_MAPERR.html">记录一次 SEGV_MAPERR 问题的分析、解决过程 - 舞风雪的独立博客</a></li>
+<li><a href="https://developer.android.com/ndk/guides/ndk-stack?hl=zh-cn">ndk-stack  |  Android NDK  |  Android Developers</a></li>
+<li><a href="https://developer.android.com/build/shrink-code?hl=zh-cn#strip-native-libraries">缩减、混淆处理和优化应用  |  Android Studio  |  Android Developers</a></li>
+</ol>
+
+  </div>
+</div>
+
+
+        
+        <div class="footer text-center space-y-2">
+    <div class="footer-nav text-sm">
+        
+    </div>
+    <div class="!text-gray-500 text-xs flex gap-3 justify-center">
+        
+        
+        
+    </div>
+</div>
+        
+    </div>
+
+
+    
+    <script src="/assets/main.dc2e1209.js"></script>
+    
+
+    <link rel="stylesheet" href="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/themes/prism-solarizedlight.css,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css">
+<script src="https://jsdelivr.daobox.cc/combine/npm/prismjs@1.29.0/components/prism-core.min.js,npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js,npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js,npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+<script>
+  Prism.plugins.autoloader.languages_path = 'https://jsdelivr.daobox.cc/npm/prismjs@1.29.0/components/';
+</script>
+    
+</body>
+
