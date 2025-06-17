@@ -1,0 +1,24 @@
+{
+  "entrypoints": {
+    "youlog": {
+      "assets": {
+        "js": [
+          "assets/youlog.C7KR6FQM.js"
+        ],
+        "css": [
+          "assets/youlog.T2SVGWIC.css"
+        ]
+      }
+    },
+    "plugin-in-search": {
+      "assets": {
+        "js": [
+          "assets/plugin-in-search.LNTAOPZG.js"
+        ],
+        "css": [
+          "assets/plugin-in-search.DVRGGPKP.css"
+        ]
+      }
+    }
+  }
+}

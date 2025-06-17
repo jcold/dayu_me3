@@ -1,0 +1,13 @@
+{% set items = posts(dir=dir, recursive=recursive) %}
+<ul>
+    {% for doc in items %}
+    <li>
+        <a href="{{ doc.url_path | safe }}?path={{doc.path|urlencode_strict}}" target="_blank">{{doc.title}}</a>
+        {%if doc.weight > 0%}<span class="!text-red-500 mark-top"></span>{%endif%}
+        <div class="text-[#2f353e] font-light text-[90%] number">
+            {{doc.update_at | date(format=config(key="date_format", default="%Y-%m-%d %H:%M"))}}
+            {% if doc.date != doc.update_at %}<em class="text-gray-500 text-[90%]">{{t(text="updated")}}</em>{% endif %}
+        </div>
+    </li>
+    {% endfor %}
+</ul>

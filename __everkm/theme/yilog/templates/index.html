@@ -1,0 +1,57 @@
+{% extends "_everkm/layout.html" %}
+{% import "_everkm/common_blocks.html" as common_blocks %}
+{% import "_everkm/widgets/drawer_aside.html" as drawer_blocks %}
+{% import "_everkm/widgets/article_toc.html" as article_toc_blocks %}
+
+{% block page_keywords -%}
+{% set meta = post_meta(path="/_page/home.md") %}
+{{- meta | get(key="meta/keywords", default="") }}
+{%- endblock page_keywords %}
+
+{% block page_description -%}
+{% set meta = post_meta(path="/_page/home.md") %}
+{{- meta | get(key="meta/description", default="") }}
+{%- endblock page_description %}
+
+{% block js %}
+{{super()}}
+<script>window.everkm.bootstrap('home')</script>
+{% endblock js %}
+
+
+{% block body %}
+<div class="mx-auto mb-10 px-6 lg:px-8 markdown-body pt-4">
+  {% set doc = post_detail(path="/_page/home.md") %}
+
+  <!-- <h1 class="text-center">{{doc.title}}</h1> -->
+
+  {{doc.content_html | safe}}
+
+  {% if has_config(key='/home_news/dir') %}
+  <h2 class="pb-1 border-b-2">{{config(key='/home_news/section_name', default='Latest')}}</h2>
+  {% set items = posts(dir=config(key="/home_news/dir"), recursive=true) %}
+  <ol>
+    {% for doc in items | slice(end=config(key="/home_news/top_count", default=6)) %}
+    <li class="">
+      <a class="text-black/90"
+        href="{{doc.url_path | safe}}?path={{doc.path | urlencode_strict}}&__tpl={{"details.html"|urlencode_strict}}"
+        target="_blank">
+        {{doc.title}}
+      </a>
+      {%if doc.weight > 0%}<span class="!text-red-500 mark-top"></span>{%endif%}
+      <span class="text-[#2f353e] font-light text-[0.9em] number">
+        {{doc.update_at | date(format=config(key="date_format", default="%Y-%m-%d %H:%M:%S"))}}
+        {% if doc.date != doc.update_at %}<em>{{t(text="common: updated")}}</em>{% endif %}
+      </span>
+    </li>
+    {% endfor %}
+  </ol>
+
+  {% if has_config(key="/home_news/more/link") %}
+  <a href="{{config(key='/home_news/more/link') | safe}}">{{config(key='/home_news/more/title',
+    default='More')}} &raquo;</a>
+  {% endif %}
+  {% endif %}
+
+</div>
+{% endblock body %}

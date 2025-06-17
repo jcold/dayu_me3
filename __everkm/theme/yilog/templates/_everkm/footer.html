@@ -1,0 +1,16 @@
+<div class="footer text-center space-y-2">
+    <div class="footer-nav text-sm">
+        {% for nav in config(key="bottom_nav", default=[]) %}
+        <div><a href="{{nav.url|safe}}">{{nav.title}}</a></div>
+        {% endfor %}
+    </div>
+    <div class="!text-gray-500 text-xs flex gap-3 justify-center">
+        {% if has_config(key="/about/title") %}
+        <span><a class="!text-gray-500" href="{{config(key="/about/url", default="")|safe}}">{{config(key="/about/title")}}</a></span>
+        {% endif %}
+        
+        {% if has_config(key="/site/beian") %}
+        <a href="https://beian.miit.gov.cn/" target="_blank" class="!text-gray-500">{{config(key="/site/beian")}}</a>
+        {% endif %}
+    </div>
+</div>
