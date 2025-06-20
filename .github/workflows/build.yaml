@@ -47,10 +47,11 @@ jobs:
 
     - name: build html
       run: |
-        pnpm i && make dist
+        cd __everkm && pnpm i && make dist
 
     - name: dist search
       run: |
+        cd __everkm
         export ALGOLIA_APP_ID="${{ secrets.ALGOLIA_APP_ID }}"
         export ALGOLIA_API_KEY="${{ secrets.ALGOLIA_API_KEY }}"
         ./node_modules/.bin/ekmp-algolia --index-name dayu_me reset --languages zh --languages en
@@ -60,7 +61,7 @@ jobs:
       with:
         commit_message: "${{ github.ref }} dist results, sha: ${{ github.sha }}"
         branch: refs/heads/dist-pages
-        repository: dist/
+        repository: __everkm/dist/
         status_options: '--untracked-files=normal'
         add_options: '--force'
         push_options: '--force'
