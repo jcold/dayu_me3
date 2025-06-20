@@ -5,6 +5,7 @@ tag:
 		git push -f github $(TAG); \
 	fi
 
+DEV_THEME_DIR = /Users/dayu/Coder/everkm/daobox-site-themes/theme-youlog/__everkm/theme/youlog
 
 ifneq (, $(shell echo $$DEBUG))
   EKMP = "/Users/dayu/Coder/everkm/everkm2/be/everkm-publish/target/debug/everkm-publish"
@@ -16,7 +17,6 @@ work:
 	$(EKMP) \
 		serve \
 		--work-dir ../ \
-		--theme-dir /Users/dayu/Coder/everkm/daobox-site-themes/theme-youlog/__everkm/theme/youlog \
 		--theme youlog
 
 preview:
@@ -28,7 +28,6 @@ dist:
 	fi
 	$(EKMP) serve \
 		--work-dir ../ \
-		--theme-dir /Users/dayu/Coder/everkm/daobox-site-themes/theme-youlog/__everkm/theme/youlog \
 		--theme youlog \
 		--export
 

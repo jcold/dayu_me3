@@ -8,17 +8,12 @@ config:
     beian: 
   page_size: 12
   default_lang: zh_CN
-  home_news:
-    section_name: Blog
-    dir: /
-    top_count: 7
-    more:
-      title: Blog here
-      link: ./blog/
-  embed_search:
+
+  algolia_search:
     app_id: 1N74YC70XF
     api_key: 95bb37e3122ee9cb57a8ee0abbd14409
-    index: dayu_me
+    index_name: dayu_me
+    site: dayu
 
 # map_url:
 #   - dir: /
