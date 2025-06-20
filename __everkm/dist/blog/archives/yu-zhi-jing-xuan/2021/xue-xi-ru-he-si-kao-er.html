@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="zh-CN" class="light"><head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>学习如何思考（二） | 🌾大余之道</title>
+  <meta name="description" content="">
+  <meta content="" name="keywords">
+  <!-- Favicon -->
+  <!-- <link rel="icon" type="image/svg+xml" href="/assets/logos/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logos/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/logos/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/logos/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/logos/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/logos/favicon-256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logos/apple-touch-icon.png"> -->
+  
+  <meta name="theme-color" content="#1E7274">
+  <script>
+    window.__everkm_lang = "zh_CN";
+    window.__everkm_base_url = "";
+  </script>
+  <link href="/assets/youlog.W4MXDHTI.css" rel="stylesheet">
+  <script src="/assets/youlog.UZ32THV4.js"></script>
+  <link rel="stylesheet" href="/assets/plugin-in-search.DVRGGPKP.css">
+  <script src="/assets/plugin-in-search.LNTAOPZG.js"></script>
+  <script src="/assets/alpinejs@3.14.9.js" defer=""></script>
+  
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  
+
+
+
+
+
+<div class="flex h-dvh">
+    <!-- 导航侧边栏 - 独立滚动 -->
+    <aside id="sidebar-nav" class="w-72 bg-gray-50 dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700
+                fixed h-dvh lg:sticky top-0 z-50
+                transform transition-transform duration-300 lg:translate-x-0 -translate-x-full
+                flex flex-col">
+        <div class="flex h-14 items-center justify-between px-2 md:px-4 bg-gray-50 dark:bg-gray-900 z-10">
+            <a data-logo="" href="/" class="flex items-center">
+                
+                    <span class="ml-2 text-lg font-medium">🌾大余之道</span>
+                
+            </a>
+            <!-- 关闭按钮 - 仅在小屏幕时显示 -->
+            <button data-drawer-close="sidebar-nav" class="lg:hidden p-1.5 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-700">
+                <svg fill="none" class="w-5 h-5" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <!-- 导航菜单内容 - 使用嵌套ul结构 -->
+        <nav class="flex-1 markdown-body !py-0 px-4 !bg-transparent nav-tree invisible overflow-y-auto" id="sidebar-nav-tree">
+            
+            <ul>
+<li><a href="/blog/index.html">Blog</a></li>
+</ul>
+
+        </nav>
+    </aside>
+
+    <!-- 右侧内容区 -->
+    <div id="body-main" class="flex-1 flex flex-col overflow-auto">
+        <!-- 顶部导航 - sticky -->
+        <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30">
+            <div class="flex h-14 items-center justify-between px-2 md:px-4">
+                <!-- 左侧：移动端菜单按钮和标题 -->
+                <div class="flex items-center gap-2 flex-1 min-w-0">
+                    <button data-drawer-toggle="sidebar-nav" class="lg:hidden p-1.5 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-700">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <div class="flex-1 min-w-0">
+                        <h1 data-app-name="" class="text-lg font-semibold text-gray-900 dark:text-white truncate hidden-repeat-site-name">
+                            🌾大余之道
+                        </h1>
+                        <h1 data-article-title="" class="text-lg font-semibold text-gray-900 dark:text-white truncate cursor-pointer hidden">
+                            学习如何思考（二）
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- 右侧：导航链接和暗黑模式切换 -->
+                <div class="flex items-center space-x-4 flex-shrink-0">
+                    
+                        <x-in-search index="dayu_me" api-key="95bb37e3122ee9cb57a8ee0abbd14409" app-id="1N74YC70XF" site="dayu" only-button="false"></x-in-search>
+                    
+                    <!-- 菜单按钮 - 仅在中小屏幕显示 -->
+                    
+
+                    <!-- 原始导航菜单 - 纯净的UL嵌套列表 -->
+                    
+                    <button onclick="openThemeSetting()" class="p-1.5 text-text-secondary dark:text-text-secondary rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"><path d="M12 13q-.68 0-1.21-.236a1.95 1.95 0 0 1-.841-.707q-.305-.472-.305-1.17q0-.591.217-.993a1.8 1.8 0 0 1 .591-.647q.374-.245.85-.369q.48-.125 1.01-.175q.618-.064.998-.12q.379-.06.55-.175c.171-.115.171-.191.171-.342v-.028q0-.438-.277-.679q-.273-.24-.776-.24q-.531 0-.845.236a1.2 1.2 0 0 0-.231.221c-.147.187-.355.348-.592.328l-.845-.068c-.301-.025-.516-.312-.392-.587a2.4 2.4 0 0 1 .369-.577q.406-.475 1.05-.73q.646-.259 1.5-.26a4.5 4.5 0 0 1 1.13.14q.545.139.965.429q.424.29.67.748q.245.451.245 1.09v4.28a.5.5 0 0 1-.5.5h-.866a.5.5 0 0 1-.5-.5v-.484h-.055a2 2 0 0 1-.457.586q-.286.249-.688.393a2.9 2.9 0 0 1-.928.138zm.563-1.36q.434 0 .767-.171q.333-.176.522-.471c.189-.295.189-.42.189-.67v-.753q-.092.06-.254.111q-.157.046-.356.088a18 18 0 0 1-.397.07l-.36.05a2.4 2.4 0 0 0-.605.162a1 1 0 0 0-.402.3a.73.73 0 0 0-.143.462q0 .402.291.614q.295.208.748.208" fill="currentColor"></path><path clip-rule="evenodd" fill="currentColor" fill-rule="evenodd" d="M5.47 1.34a.501.501 0 0 0-.949.009l-3.28 10.3a.5.5 0 0 1-.476.348H.496a.5.5 0 0 0 0 1h2.5a.5.5 0 0 0 0-1h-.474a.25.25 0 0 1-.238-.326l.422-1.33a.5.5 0 0 1 .476-.348h2.86a.5.5 0 0 1 .476.346l.43 1.33a.25.25 0 0 1-.238.327h-.219a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-.034a.5.5 0 0 1-.473-.339l-3.52-10.3zM5.846 9a.175.175 0 0 0 .166-.229l-1.25-3.85a.175.175 0 0 0-.333 0l-1.22 3.85A.175.175 0 0 0 3.376 9z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主内容区 -->
+        <div class="flex-1">
+            <div class="container mx-auto px-4 py-8">
+                <div class="flex flex-col lg:flex-row">
+                    <!-- 左侧：正文内容 -->
+                    <div class="w-full lg:w-3/4 pr-0 lg:pl-4 lg:pr-8 leading-relaxed relative">
+
+                        
+<div class="text-text-tertiary dark:text-text-tertiary text-[0.95em] mx-auto flex items-center flex-wrap relative -top-6" id="breadcrumb">
+    
+        <a href="/" class="text-text-primary dark:text-text-primary hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors inline-flex items-center">
+            <svg stroke="currentColor" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke-width="2">
+                <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </a>
+        
+            <svg fill="currentColor" viewBox="0 0 16 16" class="w-3 h-3 mx-1 inline-flex items-center">
+                <path d="M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z"></path>
+            </svg>
+            
+                <a class="text-text-primary dark:text-text-primary hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors inline-flex items-center" href="/blog/index.html">
+            
+            Blog
+            </a>
+        
+    
+</div>
+
+
+                        <h1 id="article-title" class="text-4xl font-bold text-gray-900 dark:text-white text-center mb-8">
+                            学习如何思考（二）
+                        </h1>
+
+                        <article id="article-main" class="prose prose-sm sm:prose lg:prose-lg dark:prose-invert max-w-none markdown-body !pt-0">
+                            <p>接上期，我们继续学习如何思考的第二部分。</p>
+<p>再次强调下，这里的内容不是大众娱乐，而是一种自我训练，既然是训练，那就少不了需要下苦功夫。要多看，达到熟练记忆的程度；多想，想想些你自己经历，总会有一些与你曾经的经历相符合，假如你当时知道这样的套路后，会如何做？最后加上行动，放心大胆的学以致用吧，好释放他的实际价值。这期间一定会经历痛苦与自我斗争，而且非常可能自己败下阵来，但我劝你短暂放下，休息调整后，再次投入，不要轻言放弃，因为你的每一次坚持都是在稳稳地进步。</p>
+<h2>火：用错误引燃智慧——从失败走向成功<a name="huo-yong-cuo-wu-yin-ran-zhi-hui-cong-shi-bai-zou-xiang-cheng-gong" href="#huo-yong-cuo-wu-yin-ran-zhi-hui-cong-shi-bai-zou-xiang-cheng-gong" class="heading-anchor"></a></h2>
+<ol>
+<li>欢迎意外的过失，让错误成为你的向导</li>
+<li>为错误的回答找到正确的问题</li>
+<li>故意失败</li>
+</ol>
+<p><strong>失败九次</strong></p>
+<p>下次如果你面临一个让你畏怯的挑战，这样去想：“为了让自己解决这个问题，我将必定失败九次，但在第十次尝试的时候，我会成功。”这种态度能把你从禁锢的思维中解脱出来并且让你不再害怕失败，更加有创造力地思考，因为你明白失败是走向成功的一大步。勇敢地冒一次险，并且当你失败的时候，不要去想“哎呀，浪费了这么多时间和精力，多么令人沮丧”，而是正确地思考“太棒了——一个错误完成了，还有九个——我正向前进步”！你确实是在前进。第一次失败之后，这样想：“太好了，我完成了10%！”错误、损失以及失败都是清晰指向深刻理解和创造性的解决方案的信号灯。</p>
+<p>（不要小看这样的心理暗示，它的确会有不可忽略的有效作用，有时你会发现我们的大脑就像个三岁的孩子，你多这样哄哄他，他就会高兴一会，而他一高兴就会让你专注力提高一些。）</p>
+<p><strong>不要盯着空白的屏幕</strong></p>
+<p>找一个自己感兴趣的议题或者问题，快速记下自己关于这个问题的任何想法——好的、坏的、不准确的或者模糊的。你的想法可能在很多方面都是不好的，它们可能是不准确的甚至就是错的，它们可能是不切实际的，它们可能是令人厌烦的，它们可能不会对解决问题有任何帮助，它们没有创新性……恭喜你，这是极好的开始！现在阅读你写下来的内容，然后关注两个特征：什么是对的，什么是错的。现在你有事情可以做了：拣选出好的元素，找出特别好的词组或者是强烈的观点，找出一个具有强烈暗示意义或是蕴含有趣意义的单词，确认自己已经清晰地明白了自己想表达的观点的核心。第二个任务是识别和利用错误的内容并修正发现的错误。发现没有，你现在在做一件不一样的事情——你不是在一张空白的画布上创作，而是在和一个已经存在的作品交流。为了让这个行动实际有效，很重要的一点是要保证用足够的时间重复这些行为。</p>
+<p><strong>糟糕的一天</strong></p>
+<p>好人也会有倒霉的日子。好人和伟人的区别就在于他们如何应对糟糕的那一天。糟糕的日子总是包含一些清晰到让人极不舒服的关于如何成长、学习或者是再评价的教训。所以，下次如果你倒霉了，要有意识地从那些不那么积极的经历中寻找和吸取积极的教训。</p>
+<p><strong>夸大以产生错误</strong></p>
+<p>思考某个议题或者问题，然后将它的一些特点荒谬地夸大。如果你为某个议题的某一方辩护，支持你真实相信的那一方，然后夸大该论点直到你意识到实在是有点儿过头了。这时，研究一下你夸大的描述并列出一些潜在的缺陷。这个缺陷同样适用于观点未被夸大时的情形吗？这就好像一个压力测试，你可以将这个练习应用到一些十分成熟的议题上，然后看它如何被瓦解。夸大到极致是一个可以应用在任何问题上的方法，从写作到市场营销到产品开发到政治……举个例子，大公司雇用黑客让他们尝试侵入公司的电脑系统来暴露公司安全上的薄弱环节。</p>
+<h2>气：凭空创造问题——做自己的苏格拉底<a href="#qi-ping-kong-chuang-zao-wen-ti-zuo-zi-ji-de-su-ge-la-di" class="heading-anchor" name="qi-ping-kong-chuang-zao-wen-ti-zuo-zi-ji-de-su-ge-la-di"></a></h2>
+<ol>
+<li>答案如何引发问题</li>
+<li>创造问题，活跃你的好奇心</li>
+<li>真正的问题是什么？</li>
+</ol>
+<p><strong>通过教来学</strong></p>
+<p>没有比真正教某个内容更好的学习方式了。因为当你教某个内容时，你要面对许多基本问题：学习这个议题的动机是什么？哪些是最基本的例子？我应该关注这个议题的哪些方面？议题的核心是什么？这些观点的连接点是什么？整体的架构是怎样的？重要的细节包括哪些？这些问题迫使你去发现这个问题的核心，明白自己真正理解的内容以及你还需要继续努力的方向。所以想一个你试图更好地理解的构想或者课题，然后问自己如果自己现在要开始全面解释这个构想或课题，自己需要讲些什么，包括这个构想或课题的动机、例子、纲要以及细节。最好能准备一个简短的演讲，然后将你准备的内容讲给某些人听——家人、朋友，甚至是你的老师。</p>
+<p><strong>改进你的问题</strong></p>
+<p>从学生的角度看，“我如何才能提高自己的分数”不是让GPA 提高的最有效问题。“我如何才能学会更好地思考和更加深刻地理解”“我如何才能更好地交流”“我如何才能提高我的好奇心”才是更加具有建设性的问题。对于生命中出现的每个问题，精心设计一些清晰并且可以引导出有效结论的问题。创造能够揭示隐藏的可能性的问题，把这些问题弄清楚然后再行动——对自己的问题提问。</p>
+<p><strong>问元问题</strong></p>
+<p>无论是在教室、董事会会议室还是起居室，在认真开始工作之前，对这个任务或者计划多问几个问题会使最终的效果更好。问自己这个任务的目标是什么？从这个任务中我们可以得到什么好处？前进的时候记得将这些好处铭记在心。这个训练的奖赏是它总是可以为你节省时间，因为它使你将注意力放在核心问题上，并且使你能够很快地消除最初存在于任何计划和任务中的疑惑。</p>
+<p>未完待续……</p>
+<p>再次推荐爱德华·伯格的《五维思考法》，请大家购买原书认真阅读。</p>
+<p>这里是毓知精选，如果您有好的关于工作与生活的资料，欢迎私信推荐给我们，与大家一起分享，共同向着美好的未来砥砺前行，希望有您的陪伴，谢谢！</p>
+
+                        </article>
+
+                        
+
+                        <!-- 底部导航 -->
+                        
+                        <div id="page-indicator">
+                            
+                        </div>
+
+                        <!-- bottom -->
+                        <div class="mt-10 pt-8 flex flex-col items-center justify-center gap-2">
+                            <!-- bottom nav -->
+                            <div class="flex items-center flex-wrap justify-center gap-2 text-sm text-text-secondary dark:text-text-secondary">
+                                
+                            </div>
+
+                            <!-- copy right and beian -->
+                            <div class="text-text-tertiary dark:text-text-tertiary text-sm text-center flex flex-wrap justify-center items-center gap-2">
+                                
+
+                               
+                                
+                                
+
+                                <span class="flex items-center">
+                                    <svg stroke-width="2" stroke="currentColor" class="w-4 h-4 inline-block" fill="none" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linejoin="round"></path>
+                                    </svg>
+                                    <a class="hover:text-text-secondary dark:hover:text-text-secondary transition-colors" target="_blank" href="https://youlog.theme.everkm.com" title="Powered by everkm-publish with theme youlog">
+                                        youlog
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右侧：TOC目录 -->
+                    <div class="w-full lg:w-1/4 mt-8 lg:mt-0">
+                        <div id="toc" class="mb-6 text-[0.9em]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+ </body></html>

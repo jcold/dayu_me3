@@ -1,0 +1,403 @@
+<!DOCTYPE html><html class="light" lang="zh-CN"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rust闭包函数爬坑之作为参数 | 🌾大余之道</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicon -->
+  <!-- <link rel="icon" type="image/svg+xml" href="/assets/logos/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/logos/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/logos/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/logos/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="/assets/logos/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/logos/favicon-256x256.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/logos/apple-touch-icon.png"> -->
+  
+  <meta name="theme-color" content="#1E7274">
+  <script>
+    window.__everkm_lang = "zh_CN";
+    window.__everkm_base_url = "";
+  </script>
+  <link rel="stylesheet" href="/assets/youlog.W4MXDHTI.css">
+  <script src="/assets/youlog.UZ32THV4.js"></script>
+  <link rel="stylesheet" href="/assets/plugin-in-search.DVRGGPKP.css">
+  <script src="/assets/plugin-in-search.LNTAOPZG.js"></script>
+  <script src="/assets/alpinejs@3.14.9.js" defer=""></script>
+  
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+  
+
+
+
+
+
+<div class="flex h-dvh">
+    <!-- 导航侧边栏 - 独立滚动 -->
+    <aside class="w-72 bg-gray-50 dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700
+                fixed h-dvh lg:sticky top-0 z-50
+                transform transition-transform duration-300 lg:translate-x-0 -translate-x-full
+                flex flex-col" id="sidebar-nav">
+        <div class="flex h-14 items-center justify-between px-2 md:px-4 bg-gray-50 dark:bg-gray-900 z-10">
+            <a class="flex items-center" href="/" data-logo="">
+                
+                    <span class="ml-2 text-lg font-medium">🌾大余之道</span>
+                
+            </a>
+            <!-- 关闭按钮 - 仅在小屏幕时显示 -->
+            <button class="lg:hidden p-1.5 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-700" data-drawer-close="sidebar-nav">
+                <svg stroke="currentColor" viewBox="0 0 24 24" class="w-5 h-5" fill="none">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <!-- 导航菜单内容 - 使用嵌套ul结构 -->
+        <nav id="sidebar-nav-tree" class="flex-1 markdown-body !py-0 px-4 !bg-transparent nav-tree invisible overflow-y-auto">
+            
+            <ul>
+<li><a href="/blog/index.html">Blog</a></li>
+</ul>
+
+        </nav>
+    </aside>
+
+    <!-- 右侧内容区 -->
+    <div class="flex-1 flex flex-col overflow-auto" id="body-main">
+        <!-- 顶部导航 - sticky -->
+        <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-30">
+            <div class="flex h-14 items-center justify-between px-2 md:px-4">
+                <!-- 左侧：移动端菜单按钮和标题 -->
+                <div class="flex items-center gap-2 flex-1 min-w-0">
+                    <button data-drawer-toggle="sidebar-nav" class="lg:hidden p-1.5 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-300 dark:hover:bg-gray-700">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-width="2" d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                    <div class="flex-1 min-w-0">
+                        <h1 data-app-name="" class="text-lg font-semibold text-gray-900 dark:text-white truncate hidden-repeat-site-name">
+                            🌾大余之道
+                        </h1>
+                        <h1 class="text-lg font-semibold text-gray-900 dark:text-white truncate cursor-pointer hidden" data-article-title="">
+                            Rust闭包函数爬坑之作为参数
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- 右侧：导航链接和暗黑模式切换 -->
+                <div class="flex items-center space-x-4 flex-shrink-0">
+                    
+                        <x-in-search index="dayu_me" site="dayu" app-id="1N74YC70XF" api-key="95bb37e3122ee9cb57a8ee0abbd14409" only-button="false"></x-in-search>
+                    
+                    <!-- 菜单按钮 - 仅在中小屏幕显示 -->
+                    
+
+                    <!-- 原始导航菜单 - 纯净的UL嵌套列表 -->
+                    
+                    <button onclick="openThemeSetting()" class="p-1.5 text-text-secondary dark:text-text-secondary rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" class="w-5 h-5"><path fill="currentColor" d="M12 13q-.68 0-1.21-.236a1.95 1.95 0 0 1-.841-.707q-.305-.472-.305-1.17q0-.591.217-.993a1.8 1.8 0 0 1 .591-.647q.374-.245.85-.369q.48-.125 1.01-.175q.618-.064.998-.12q.379-.06.55-.175c.171-.115.171-.191.171-.342v-.028q0-.438-.277-.679q-.273-.24-.776-.24q-.531 0-.845.236a1.2 1.2 0 0 0-.231.221c-.147.187-.355.348-.592.328l-.845-.068c-.301-.025-.516-.312-.392-.587a2.4 2.4 0 0 1 .369-.577q.406-.475 1.05-.73q.646-.259 1.5-.26a4.5 4.5 0 0 1 1.13.14q.545.139.965.429q.424.29.67.748q.245.451.245 1.09v4.28a.5.5 0 0 1-.5.5h-.866a.5.5 0 0 1-.5-.5v-.484h-.055a2 2 0 0 1-.457.586q-.286.249-.688.393a2.9 2.9 0 0 1-.928.138zm.563-1.36q.434 0 .767-.171q.333-.176.522-.471c.189-.295.189-.42.189-.67v-.753q-.092.06-.254.111q-.157.046-.356.088a18 18 0 0 1-.397.07l-.36.05a2.4 2.4 0 0 0-.605.162a1 1 0 0 0-.402.3a.73.73 0 0 0-.143.462q0 .402.291.614q.295.208.748.208"></path><path d="M5.47 1.34a.501.501 0 0 0-.949.009l-3.28 10.3a.5.5 0 0 1-.476.348H.496a.5.5 0 0 0 0 1h2.5a.5.5 0 0 0 0-1h-.474a.25.25 0 0 1-.238-.326l.422-1.33a.5.5 0 0 1 .476-.348h2.86a.5.5 0 0 1 .476.346l.43 1.33a.25.25 0 0 1-.238.327h-.219a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-.034a.5.5 0 0 1-.473-.339l-3.52-10.3zM5.846 9a.175.175 0 0 0 .166-.229l-1.25-3.85a.175.175 0 0 0-.333 0l-1.22 3.85A.175.175 0 0 0 3.376 9z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主内容区 -->
+        <div class="flex-1">
+            <div class="container mx-auto px-4 py-8">
+                <div class="flex flex-col lg:flex-row">
+                    <!-- 左侧：正文内容 -->
+                    <div class="w-full lg:w-3/4 pr-0 lg:pl-4 lg:pr-8 leading-relaxed relative">
+
+                        
+<div class="text-text-tertiary dark:text-text-tertiary text-[0.95em] mx-auto flex items-center flex-wrap relative -top-6" id="breadcrumb">
+    
+        <a href="/" class="text-text-primary dark:text-text-primary hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors inline-flex items-center">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="w-4 h-4">
+                <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+        </a>
+        
+            <svg fill="currentColor" class="w-3 h-3 mx-1 inline-flex items-center" viewBox="0 0 16 16">
+                <path d="M6.6 13.4L5.2 12l4-4-4-4 1.4-1.4L12 8z"></path>
+            </svg>
+            
+                <a class="text-text-primary dark:text-text-primary hover:text-brand-primary dark:hover:text-brand-primary-light transition-colors inline-flex items-center" href="/blog/index.html">
+            
+            Blog
+            </a>
+        
+    
+</div>
+
+
+                        <h1 class="text-4xl font-bold text-gray-900 dark:text-white text-center mb-8" id="article-title">
+                            Rust闭包函数爬坑之作为参数
+                        </h1>
+
+                        <article id="article-main" class="prose prose-sm sm:prose lg:prose-lg dark:prose-invert max-w-none markdown-body !pt-0">
+                            <p>今天掉的坑有些复杂，究其主要原因还是对闭包、借用生命周期、静态/动态分发、异步、不透明类型（opaque types）不熟悉导致的。</p>
+<p>需求是我需要用户传递一个异步函数来处理我提供的内容，所以很自然的写出如下代码。</p>
+<p>// Cargo.toml</p>
+<pre><code class="language-toml">[package]
+name = "hw-rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.32.0", features = ["full"] }
+</code></pre>
+<p>// main.rs</p>
+<pre><code class="language-rust">use std::future::Future;
+
+async fn process_with_closure&lt;F, Fut&gt;(data: &amp;str, closure: F)
+where
+    F: Fn(&amp;str) -&gt; Fut, // 闭包的签名，接受一个 &amp;str 参数
+    Fut: Future&lt;Output = String&gt;,
+{
+    // 在这里调用传递进来的闭包
+    let result = closure(data).await;
+    println!("{}", result);
+}
+
+async fn my_closure(s: &amp;str) -&gt; String {
+    println!("got {}", s);
+    format!("hello")
+}
+
+#[tokio::main]
+async fn main() {
+    let my_string = String::from("Hello, Rust!");
+
+    // 调用函数，并传递闭包作为参数
+    process_with_closure(&amp;my_string, my_closure).await;
+}
+</code></pre>
+<p>编码逻辑简单清晰，但被rustc驳回，报错如下：</p>
+<pre><code>error[E0308]: mismatched types
+  --&gt; src/main.rs:23:5
+   |
+23 |     process_with_closure(&amp;my_string, my_closure).await;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ one type is more general than the other
+   |
+   = note: expected opaque type `impl for&lt;'a&gt; Future&lt;Output = String&gt;`
+              found opaque type `impl Future&lt;Output = String&gt;`
+   = help: consider `await`ing on both `Future`s
+   = note: distinct uses of `impl Trait` result in different opaque types
+note: the lifetime requirement is introduced here
+  --&gt; src/main.rs:5:20
+   |
+5  |     F: Fn(&amp;str) -&gt; Fut, // 闭包的签名，接受一个 &amp;str 参数
+   |                    ^^^
+</code></pre>
+<p>错误指出，调用时的函数签名与接收方的签名不一样。仔细看看就会发现，是编译器自动补全了借用生命周期后，签名不一样了，所以失败，那用Owned数据呢？</p>
+<pre><code class="language-rust">use std::future::Future;
+
+async fn process_with_closure&lt;F, Fut&gt;(data: String, closure: F)
+where
+    F: Fn(String) -&gt; Fut,
+    Fut: Future&lt;Output = String&gt;,
+{
+    // 在这里调用传递进来的闭包
+    let result = closure(data).await;
+    println!("{}", result);
+}
+
+async fn my_closure(s: String) -&gt; String {
+    println!("got {}", s);
+    format!("hello")
+}
+
+#[tokio::main]
+async fn main() {
+    let my_string = String::from("Hello, Rust!");
+
+    // 调用函数，并传递闭包作为参数
+    process_with_closure(my_string, my_closure).await;
+}
+</code></pre>
+<p>果然，可以正常运行。似乎明白了，且再看一个例子<sup class="footnote-reference"><a href="#rust-discuss">1</a></sup>。</p>
+<pre><code class="language-rust">fn main() {
+    let mut input = String::new();
+    println!("input unsigned integer:");
+    std::io::stdin()
+        .read_line(&amp;mut input)
+        .expect("readline error");
+    let func = match input.trim() {
+        "1" =&gt; a,
+        _ =&gt; b,
+    };
+    func();
+}
+
+async fn a() -&gt; u32 {
+    println!("pressed 1");
+    1
+}
+
+async fn b() -&gt; u32 {
+    println!("pressed 2");
+    2
+}
+</code></pre>
+<p>这此看似返回值明确吧？但又一次被编译器无情的驳回：</p>
+<pre><code>error[E0308]: `match` arms have incompatible types
+  --&gt; src/main.rs:9:14
+   |
+7  |       let func = match input.trim() {
+   |  ________________-
+8  | |         "1" =&gt; a,
+   | |                - this is found to be of type `fn() -&gt; impl Future&lt;Output = u32&gt; {a}`
+9  | |         _ =&gt; b,
+   | |              ^ expected `a::{opaque#0}`, found `b::{opaque#0}`
+10 | |     };
+   | |_____- `match` arms have incompatible types
+   |
+   = note: expected fn item `fn() -&gt; impl Future&lt;Output = u32&gt; {a}`
+              found fn item `fn() -&gt; impl Future&lt;Output = u32&gt; {b}`
+</code></pre>
+<p>咋看起来有些蒙，我声明闭包类型是<code>Fn()-&gt;u32</code>，报错给出的是<code>fn item fn() -&gt; impl Future&lt;Output = u32&gt;</code>？</p>
+<p>仔细看看，我们是用<code>async</code>关键字声明的异步函数，它是一个<strong>语法糖</strong>，因此在编译时，编译器会进行脱糖（desugar）操作，如下，</p>
+<pre><code class="language-rust">async fn a() -&gt; u32 {
+    1
+}
+</code></pre>
+<p>脱糖后</p>
+<pre><code class="language-rust">fn a() -&gt; impl Future&lt;Output=u32&gt; {
+    async {
+        1
+    }
+}
+</code></pre>
+<p>编译器脱糖后，推导出最终类型不匹配导致的，这里如果看不明白，那还需要补习下rust的静态分发和动态分发。</p>
+<p>接着改造：指定闭包返回类型，改为动态分发。</p>
+<pre><code class="language-rust">use std::future::Future;
+use std::pin::Pin;
+
+#[tokio::main]
+async fn main() {
+    let mut input = String::new();
+    println!("input unsigned integer:");
+    std::io::stdin()
+        .read_line(&amp;mut input)
+        .expect("readline error");
+    let func: fn() -&gt; Pin&lt;Box&lt;dyn Future&lt;Output = u32&gt;&gt;&gt; = match input.trim() {
+        "1" =&gt; || Box::pin(a()),
+        _ =&gt; || Box::pin(b()),
+    };
+    func().await;
+}
+
+async fn a() -&gt; u32 {
+    println!("hit 1");
+    1
+}
+
+async fn b() -&gt; u32 {
+    println!("hit 2");
+    2
+}
+</code></pre>
+<p>终于可以运行了。但是走到这里，还是不能解决，需求参数里的变量借用生命周期问题，自己补全在这个案例上，太繁琐了，最后我也没有成功，还是换条路吧，改为 Trait + impl 的方式实现。</p>
+<pre><code class="language-bash">cargo add async_trait
+</code></pre>
+<pre><code class="language-rust">use std::future::Future;
+use async_trait::async_trait;
+
+#[async_trait]
+pub trait MyAsyncFn {
+    async fn call(&amp;self, s: &amp;str, s2: &amp;str) -&gt; String;
+}
+
+async fn process_with_closure&lt;F&gt;(data: &amp;str, closure: F)
+where
+    F: MyAsyncFn,
+{
+    // 在这里调用传递进来的闭包
+    let result = closure.call(data, data).await;
+    println!("{}", result);
+}
+
+struct MyClosure;
+
+#[async_trait]
+impl MyAsyncFn for MyClosure {
+    async fn call(&amp;self, s: &amp;str, s2: &amp;str) -&gt; String {
+        println!("{}", s);
+        format!("hello")
+    }
+}
+
+#[tokio::main]
+async fn main() {
+    let my_string = String::from("Hello, Rust!");
+
+    // 定义一个闭包并将其传递给函数
+    let my_closure = MyClosure;
+
+    // 调用函数，并传递闭包作为参数
+    process_with_closure(&amp;my_string, my_closure).await;
+}
+</code></pre>
+<p>这个实现简单多了，不过是有这些优秀的库在背后帮我们做了很多而已。</p>
+<blockquote>
+<p>哪有什么岁月静好，只不过是有人在默默为我们负重前行罢了！</p>
+</blockquote>
+<h2>参考<a class="heading-anchor" href="#can-kao" name="can-kao"></a></h2>
+<div class="footnote-definition" id="rust-discuss"><sup class="footnote-definition-label">1</sup>
+<p>https://users.rust-lang.org/t/error-distinct-uses-of-impl-trait-result-in-different-opaque-types/46862</p>
+</div>
+
+                        </article>
+
+                        
+
+                        <!-- 底部导航 -->
+                        
+                        <div id="page-indicator">
+                            
+                        </div>
+
+                        <!-- bottom -->
+                        <div class="mt-10 pt-8 flex flex-col items-center justify-center gap-2">
+                            <!-- bottom nav -->
+                            <div class="flex items-center flex-wrap justify-center gap-2 text-sm text-text-secondary dark:text-text-secondary">
+                                
+                            </div>
+
+                            <!-- copy right and beian -->
+                            <div class="text-text-tertiary dark:text-text-tertiary text-sm text-center flex flex-wrap justify-center items-center gap-2">
+                                
+
+                               
+                                
+                                
+
+                                <span class="flex items-center">
+                                    <svg viewBox="0 0 24 24" class="w-4 h-4 inline-block" stroke="currentColor" fill="none" stroke-width="2">
+                                        <path stroke-linecap="round" d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linejoin="round"></path>
+                                    </svg>
+                                    <a href="https://youlog.theme.everkm.com" class="hover:text-text-secondary dark:hover:text-text-secondary transition-colors" title="Powered by everkm-publish with theme youlog" target="_blank">
+                                        youlog
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 右侧：TOC目录 -->
+                    <div class="w-full lg:w-1/4 mt-8 lg:mt-0">
+                        <div class="mb-6 text-[0.9em]" id="toc"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+ </body></html>
