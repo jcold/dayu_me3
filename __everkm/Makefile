@@ -16,13 +16,19 @@ work:
 	$(EKMP) \
 		serve \
 		--work-dir ../ \
+		--theme-dir /Users/dayu/Coder/everkm/daobox-site-themes/theme-youlog/__everkm/theme/youlog \
 		--theme youlog
 
 preview:
 	$(EKMP) web --work-dir dist
  
 dist:
+	if [ -d dist ]; then \
+		rm -rf dist; \
+	fi
 	$(EKMP) serve \
-		--theme yilog \
+		--work-dir ../ \
+		--theme-dir /Users/dayu/Coder/everkm/daobox-site-themes/theme-youlog/__everkm/theme/youlog \
+		--theme youlog \
 		--export
 

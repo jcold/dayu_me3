@@ -12,8 +12,8 @@ importers:
         specifier: ^0.0.4
         version: 0.0.4
       everkm-publish:
-        specifier: ^0.13.7
-        version: 0.13.7
+        specifier: ^0.14.0
+        version: 0.14.0
 
 packages:
 
@@ -93,8 +93,8 @@ packages:
   end-of-stream@1.4.5:
     resolution: {integrity: sha512-ooEGc6HP26xXq/N+GCGOT0JKCLDGrq2bQUZrQ7gyrJiZANJ/8YDTxTpQBXGMn+WbIQXNVpyWymm7KYVICQnyOg==}
 
-  everkm-publish@0.13.7:
-    resolution: {integrity: sha512-T9lm4AgnqNMKD4jcbAAqh7UxlB6Q//9RyZt6gaeT/BsFZBHyg6UDsAcgBMkyF2ztoynZoUL880l1Is0ml0yjug==}
+  everkm-publish@0.14.0:
+    resolution: {integrity: sha512-wJM+lRARmjc5WOyKt9f6joqdhzczoA+dFw14b48vS1r8Nu2mylgo/15u6YUYrRdK9xyG8xMoRZKucinET9cv+Q==}
     engines: {node: '>=12'}
     hasBin: true
 
@@ -376,7 +376,7 @@ snapshots:
     dependencies:
       once: 1.4.0
 
-  everkm-publish@0.13.7:
+  everkm-publish@0.14.0:
     dependencies:
       adm-zip: 0.5.16
       decompress: 4.2.1

@@ -1,12 +1,15 @@
 ---
-title: Blog
 date: 2025-06-17 11:06
-slug: blog2
+tags:
+    - index
 ---
 
 # 博客
 
 ```yaml dcard/list
 dir: /blog/
-recursive: true
+include_subfolders: true
+exclude_tags:
+    - index
+# page_size: 10
 ```
